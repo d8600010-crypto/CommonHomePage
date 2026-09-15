@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主要出版社針對生成式 AI 應用規範整理</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --primary-hover: #1e40af;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --text-primary: #1f2937;
+            --text-secondary: #4b5563;
+            --tag-bg: #eff6ff;
+            --tag-text: #1d4ed8;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.5;
+            margin: 0;
+            padding: 24px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 1.75rem;
+            margin: 0 0 8px 0;
+        }
+
+        .meta-info {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 16px;
+        }
+
+        .notice-box {
+            background-color: #fffbe3;
+            border-left: 4px solid #f59e0b;
+            padding: 12px 16px;
+            font-size: 0.875rem;
+            color: #78350f;
+            border-radius: 0 6px 6px 0;
+            margin-bottom: 24px;
+        }
+
+        .table-container {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.875rem;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 12px 16px;
+            border-bottom: 2px solid var(--border-color);
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .seq-num {
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-align: center;
+            width: 48px;
+        }
+
+        .publisher-name {
+            font-weight: 600;
+            color: var(--primary-color);
+            white-space: nowrap;
+            width: 140px;
+        }
+
+        ul, ol {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        li {
+            margin-bottom: 4px;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        .external-link {
+            word-break: break-all;
+            color: var(--tag-text);
+            text-decoration: none;
+        }
+
+        .external-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 12px;
+            }
+            h1 {
+                font-size: 1.35rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>主要出版社針對生成式 AI 應用規範整理</h1>
+        <div class="meta-info">林口長庚醫院圖書館製作 (115.05.05)</div>
+        <div class="notice-box">
+            ※ 說明：本表單資訊僅供參考，投稿前請務必查閱各出版社官網之最新投稿規範。
+        </div>
+    </header>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 50px; text-align: center;">序號</th>
+                    <th style="width: 140px;">出版社</th>
+                    <th style="min-width: 220px;">使用 AI 工具協助投稿的相關規範</th>
+                    <th style="min-width: 200px;">AI 生成圖像 / 資料</th>
+                    <th style="min-width: 140px;">AI 工具可否作為作者</th>
+                    <th style="min-width: 220px;">是否利用 AI 工具審查投稿文章</th>
+                    <th style="min-width: 200px;">投稿文章須註明使用 AI</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="seq-num">1</td>
+                    <td class="publisher-name">BMJ</td>
+                    <td>
+                        <ol>
+                            <li>可使用[cite: 1]</li>
+                            <li>需揭露何種工具、用途及方式[cite: 1]</li>
+                            <li>揭露不足或使用不當 → 可能拒稿或後續修正[cite: 1]</li>
+                            <li>作者需負最終責任[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>不可用於創建或修改原始研究數據與結果[cite: 1]</td>
+                    <td>不可列為作者[cite: 1]</td>
+                    <td>
+                        <ol>
+                            <li>審稿者使用人工智慧技術來改善文字處理和語言表達，則應在提交報告時予以說明[cite: 1]</li>
+                            <li>審稿人不得將未發表稿件上傳至公開 AI 工具[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>√ 是，需詳細聲明使用情況，作者負全責[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td class="seq-num">2</td>
+                    <td class="publisher-name">Cambridge</td>
+                    <td>可使用[cite: 1]</td>
+                    <td>可使用[cite: 1]</td>
+                    <td>不可列為作者[cite: 1]</td>
+                    <td>未提及[cite: 1]</td>
+                    <td>是，需詳細聲明使用情況[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td class="seq-num">3</td>
+                    <td class="publisher-name">EMBO</td>
+                    <td>可使用[cite: 1]</td>
+                    <td>可使用（包括圖式和資料圖表）[cite: 1]</td>
+                    <td>不可列為作者[cite: 1]</td>
+                    <td>未提及[cite: 1]</td>
+                    <td>是，需詳細聲明使用情況[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td class="seq-num">4</td>
+                    <td class="publisher-name">Elsevier<br><small>(含 Lancet)</small></td>
+                    <td>
+                        <ol>
+                            <li>可使用[cite: 1]</li>
+                            <li>限於語言潤飾、可讀性（如文法校正）提升[cite: 1]</li>
+                            <li>須人工審核與編輯[cite: 1]</li>
+                            <li>作者需負最終責任[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>
+                        <ol>
+                            <li>原則上禁止使用 AI 生成圖像或資料[cite: 1]</li>
+                            <li>例外：僅限研究方法用途可使用且需完整揭露使用情形及具備可重現性[cite: 1]</li>
+                            <li>藝術性圖像（如圖形摘要）一律禁止使用[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>不可列為作者[cite: 1]</td>
+                    <td>
+                        <ol>
+                            <li>禁止使用外部 AI 工具進行審查[cite: 1]</li>
+                            <li>有內部 AI 檢查抄襲與完整性[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>是，需於參考文獻前揭露工具名稱與使用原因[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td class="seq-num">5</td>
+                    <td class="publisher-name">JAMA</td>
+                    <td>可使用[cite: 1]</td>
+                    <td>可使用[cite: 1]</td>
+                    <td>未提及[cite: 1]</td>
+                    <td>未提及[cite: 1]</td>
+                    <td>是，需於「方法」或「致謝」詳述[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td class="seq-num">6</td>
+                    <td class="publisher-name">Karger</td>
+                    <td>
+                        <ol>
+                            <li>可使用[cite: 1]</li>
+                            <li>所有使用到的軟體都必須在參考文獻中註明[cite: 1]</li>
+                            <li>作者需負最終責任[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>可使用[cite: 1]</td>
+                    <td>不可列為作者[cite: 1]</td>
+                    <td>
+                        <ol>
+                            <li>所有審查與稿件決策均由人工進行，所使用的 AI 工具皆非公開平台[cite: 1]</li>
+                            <li>禁止使用外部 AI 工具進行審查[cite: 1]</li>
+                            <li>有內部 AI 工具檢查抄襲與完整性[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>√ 是，需於「方法」或「致謝」說明其用途[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td class="seq-num">7</td>
+                    <td class="publisher-name">LWW</td>
+                    <td>
+                        <ol>
+                            <li>使用 iThenticate 文字比對[cite: 1]</li>
+                            <li>超標會人工查核[cite: 1]</li>
+                            <li>尚未有超標比率規範[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>未禁止使用，但未強調揭露[cite: 1]</td>
+                    <td>未提及[cite: 1]</td>
+                    <td>未提及[cite: 1]</td>
+                    <td>否，無強制要求附佐證資料[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td class="seq-num">8</td>
+                    <td class="publisher-name">NEJM</td>
+                    <td>
+                        <ol>
+                            <li>可使用[cite: 1]</li>
+                            <li>作者需負最終責任，內容未涉及抄襲，確保所有引述資料皆正確註明出處並完整引用[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>
+                        <ol>
+                            <li>可使用[cite: 1]</li>
+                            <li>作者應能保證 AI 產出內容未涉及抄襲文字或圖像，且須確保所有引述資料皆正確註明出處並完整引用[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>不可列為作者[cite: 1]</td>
+                    <td>未提及[cite: 1]</td>
+                    <td>是，需於「投稿信」與「稿件本身」詳細聲明使用工具及使用情況[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td class="seq-num">9</td>
+                    <td class="publisher-name">Oxford</td>
+                    <td colspan="5">
+                        各期刊之投稿政策（包括作者指南、編輯政策與出版倫理）依其規定有所不同，請參考下方網址，並點選欲投稿之期刊標題，進一步查閱相關說明：<br>
+                        <a href="https://academic.oup.com/pages/for-authors/journals/ita-journals-a-z?login=true" class="external-link" target="_blank" rel="noopener noreferrer">https://academic.oup.com/pages/for-authors/journals/ita-journals-a-z?login=true</a>[cite: 1]
+                    </td>
+                </tr>
+                <tr>
+                    <td class="seq-num">10</td>
+                    <td class="publisher-name">PNAS</td>
+                    <td>可使用[cite: 1]</td>
+                    <td>不允許在封面作品中使用人工智慧[cite: 1]</td>
+                    <td>不可列為作者[cite: 1]</td>
+                    <td>未提及[cite: 1]</td>
+                    <td>√ 是，需於「方法」或「致謝」詳述[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td class="seq-num">11</td>
+                    <td class="publisher-name">PLOS One</td>
+                    <td>可使用[cite: 1]</td>
+                    <td>未提及[cite: 1]</td>
+                    <td>未提及[cite: 1]</td>
+                    <td>未提及[cite: 1]</td>
+                    <td>是，需於「方法」或「致謝」詳述[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td class="seq-num">12</td>
+                    <td class="publisher-name">Sage</td>
+                    <td>
+                        <ol>
+                            <li>可使用[cite: 1]</li>
+                            <li>作者需負最終責任[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>可使用，但禁止影像以獨特或新穎的研究影像形式呈現[cite: 1]</td>
+                    <td>不可列為作者[cite: 1]</td>
+                    <td>
+                        <ol>
+                            <li>同儕審查過程中使用人工智慧工具（如資料評估、翻譯或語言潤飾），須於評審表或決定書中明確告知作者[cite: 1]</li>
+                            <li>不得將稿件上傳至外部 AI 工具，禁止使用外部 AI 工具進行審查[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>是，需於「參考文獻」中引用原始來源，及於「方法」或「致謝」說明模型及用途[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td class="seq-num">13</td>
+                    <td class="publisher-name">Science</td>
+                    <td>
+                        <ol>
+                            <li>可使用[cite: 1]</li>
+                            <li>若用於撰寫內容，需於「投稿信」或「致謝」說明[cite: 1]</li>
+                            <li>作者需負最終責任[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>
+                        <ol>
+                            <li>禁止使用 AI 工具生成圖像或多媒體內容[cite: 1]</li>
+                            <li>例外：針對人工智慧或機器學習主題之稿件[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>不可列為作者[cite: 1]</td>
+                    <td>不可將稿件上傳至 AI 工具或撰寫評論[cite: 1]</td>
+                    <td>是，需於適當部分說明用途[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td class="seq-num">14</td>
+                    <td class="publisher-name">Springer Nature</td>
+                    <td>
+                        <ol>
+                            <li>可使用[cite: 1]</li>
+                            <li>僅限語言潤飾可不揭露[cite: 1]</li>
+                            <li>作者需負最終責任[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>
+                        <ol>
+                            <li>原則上不接受[cite: 1]</li>
+                            <li>例外：合法授權圖像、與 AI 研究有關的圖像、由科學數據生成圖像（需遵守倫理）[cite: 1]</li>
+                            <li>表格、流程圖等不在限制範圍[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>不可列為作者[cite: 1]</td>
+                    <td>
+                        <ol>
+                            <li>不可將稿件上傳至 AI 工具[cite: 1]</li>
+                            <li>若有使用 AI 工具協助分析或審閱，需於審查報告中清楚揭露[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>是，需於適當部分說明用途[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td class="seq-num">15</td>
+                    <td class="publisher-name">Taylor & Francis</td>
+                    <td>
+                        <ol>
+                            <li>可使用[cite: 1]</li>
+                            <li>須註明工具全名、版本、使用方式與原因[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>不可用於創建/處理圖像、表格、研究數據（包括圖像修改、添加特徵等）[cite: 1]</td>
+                    <td>不可列為作者[cite: 1]</td>
+                    <td>審稿人不得將稿件上傳至 AI 工具[cite: 1]</td>
+                    <td>是，置於「方法」或「致謝」部分需詳細聲明使用情況[cite: 1]</td>
+                </tr>
+                <tr>
+                    <td class="seq-num">16</td>
+                    <td class="publisher-name">Wiley</td>
+                    <td>
+                        <ol>
+                            <li>可使用[cite: 1]</li>
+                            <li>限於安全、合乎道德與可靠方式[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>不可用於創建或修改原始研究數據與結果[cite: 1]</td>
+                    <td>
+                        <ol>
+                            <li>不可列為作者[cite: 1]</li>
+                            <li>不具法律地位與著作權[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>
+                        <ol>
+                            <li>視期刊編輯決定是否可使用，用途必須在向稿件處理編輯提交同儕審查報告時予以透明聲明[cite: 1]</li>
+                            <li>審稿人不得將稿件上傳至 AI 工具[cite: 1]</li>
+                        </ol>
+                    </td>
+                    <td>是，須於「方法」或「致謝」中註明用途，作者負全責[cite: 1]</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

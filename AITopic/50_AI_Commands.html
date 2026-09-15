@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>50 個 AI 萬用指令大全</title>
+  <style>
+    :root {
+      --bg: #faf9f7;
+      --card: #ffffff;
+      --text: #2c2c2c;
+      --muted: #6b6b6b;
+      --accent: #8b7355;
+      --accent-light: #c4a882;
+      --border: #e8e4de;
+      --section-bg: #f5f2ed;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    header .author {
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+    }
+
+    header h1 {
+      font-size: 1.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    header .subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    section h2 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent-light);
+    }
+
+    .command {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .command:hover {
+      box-shadow: 0 4px 12px rgba(139, 115, 85, 0.08);
+      border-color: var(--accent-light);
+    }
+
+    .command-name {
+      font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .command-desc {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .usage {
+      background: var(--section-bg);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin-top: 2.5rem;
+    }
+
+    .usage h2 {
+      border-bottom: none;
+      margin-bottom: 1rem;
+      padding-bottom: 0;
+    }
+
+    .usage p {
+      font-size: 0.9rem;
+      margin-bottom: 0.85rem;
+      color: var(--text);
+    }
+
+    .usage strong {
+      color: var(--accent);
+    }
+
+    .examples {
+      margin: 1rem 0;
+      padding-left: 1.25rem;
+    }
+
+    .examples li {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .examples code {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.15rem 0.4rem;
+      font-size: 0.85rem;
+      font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    footer p {
+      margin-bottom: 0.35rem;
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+      .command {
+        padding: 0.85rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <p class="author">olga.passione</p>
+      <h1>50 個 AI 萬用指令大全</h1>
+      <p class="subtitle">適用於 Claude・ChatGPT・Gemini</p>
+    </header>
+
+    <!-- 一、寫作與風格調整 -->
+    <section>
+      <h2>一、寫作與風格調整（8 個）</h2>
+
+      <div class="command">
+        <div class="command-name">/HUMAN</div>
+        <div class="command-desc">將文字改寫得更自然、有溫度，去除機器感。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">/IMPROVE</div>
+        <div class="command-desc">提升文字的清晰度、流暢度與整體品質。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">/SHORTEN</div>
+        <div class="command-desc">將內容壓縮成更精簡的版本，保留核心意思。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">/EXPAND</div>
+        <div class="command-desc">為內容增加細節、深度與補充說明。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">/CASUAL</div>
+        <div class="command-desc">將語氣改為輕鬆、口語的對話風格。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">/FORMAL</div>
+        <div class="command-desc">將語氣調整為更專業、正式的書面風格。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">/VOICEMATCH</div>
+        <div class="command-desc">分析你提供的文字樣本，照著你的語氣和風格輸出。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">/ONETAKE</div>
+        <div class="command-desc">只給一個最好的版本，不提供多個選項讓你選擇。</div>
+      </div>
+    </section>
+
+    <!-- 二、格式與輸出控制 -->
+    <section>
+      <h2>二、格式與輸出控制（7 個）</h2>
+
+      <div class="command">
+        <div class="command-name">TLDR</div>
+        <div class="command-desc">將內容濃縮成最短、最有用的摘要版本。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">BULLETS</div>
+        <div class="command-desc">將輸出整理成條列式重點格式。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">TABLE</div>
+        <div class="command-desc">將內容格式化為表格，方便比較對照。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">CHECKLIST</div>
+        <div class="command-desc">將答案轉換成可執行的行動清單格式。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">STEPS</div>
+        <div class="command-desc">將回答整理成清楚的步驟式流程。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">/NOFLUFF</div>
+        <div class="command-desc">去掉所有廢話和客套，直接給出答案。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">/KEYPOINTS</div>
+        <div class="command-desc">只抽取最重要的幾個核心重點。</div>
+      </div>
+    </section>
+
+    <!-- 三、學習與理解 -->
+    <section>
+      <h2>三、學習與理解（7 個）</h2>
+
+      <div class="command">
+        <div class="command-name">ELI5</div>
+        <div class="command-desc">用非常簡單的方式解釋，像在教小孩一樣。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">FEYNMAN</div>
+        <div class="command-desc">用最簡單的語言解釋概念，測試是否真正理解。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">QUIZME</div>
+        <div class="command-desc">根據內容出題，讓你測試自己的理解程度。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">FLASHCARDS</div>
+        <div class="command-desc">將內容轉換成問答卡片格式，方便記憶。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">MISCONCEPTIONS</div>
+        <div class="command-desc">列出這個主題常見的錯誤理解和迷思。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">TIMELINE</div>
+        <div class="command-desc">將主題或歷史按時間順序整理排列。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">/ANALOGIES</div>
+        <div class="command-desc">用生活中熟悉的事物比喻，解釋抽象概念。</div>
+      </div>
+    </section>
+
+    <!-- 四、腦力激盪與創意 -->
+    <section>
+      <h2>四、腦力激盪與創意（7 個）</h2>
+
+      <div class="command">
+        <div class="command-name">IDEAS10</div>
+        <div class="command-desc">快速圍繞一個主題生成十個想法。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">ALT3</div>
+        <div class="command-desc">提供三個不同方向的替代版本或選項。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">HOOKS10</div>
+        <div class="command-desc">生成十個適合內容創作或文案的開頭鉤子。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">SCAMPER</div>
+        <div class="command-desc">用 SCAMPER 創意框架改良和發展一個想法。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">REMIX</div>
+        <div class="command-desc">將兩個不同概念結合，生成一個全新的混合想法。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">/VIRALHOOKS</div>
+        <div class="command-desc">生成專門設計來抓住注意力、容易擴散的鉤子。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">/CONTRAST</div>
+        <div class="command-desc">用對比的方式說明概念，讓差異更加清晰有畫面感。</div>
+      </div>
+    </section>
+
+    <!-- 五、分析與決策 -->
+    <section>
+      <h2>五、分析與決策（8 個）</h2>
+
+      <div class="command">
+        <div class="command-name">PROSCONS</div>
+        <div class="command-desc">列出一件事的主要優點與缺點。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">SWOT</div>
+        <div class="command-desc">分析優勢、劣勢、機會與威脅四個面向。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">RISKMAP</div>
+        <div class="command-desc">找出計畫或決策中的主要風險點。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">PARETO</div>
+        <div class="command-desc">找出能帶來 80% 成果的那 20% 關鍵行動。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">SECONDORDER</div>
+        <div class="command-desc">不只看第一層效果，繼續追蹤後續連鎖影響。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">REDTEAM</div>
+        <div class="command-desc">以挑剔的角度積極攻擊一個想法，找出弱點。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">/BLINDSPOT</div>
+        <div class="command-desc">主動找出你沒有考慮到、容易忽略的角度與盲點。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">/WORSTCASE</div>
+        <div class="command-desc">只分析最壞的可能情況，逼你正視潛在風險。</div>
+      </div>
+    </section>
+
+    <!-- 六、深度思考與系統分析 -->
+    <section>
+      <h2>六、深度思考與系統分析（7 個）</h2>
+
+      <div class="command">
+        <div class="command-name">X10THINK</div>
+        <div class="command-desc">要求 AI 在回答前進行更深層、更全面的思考。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">LENSSTACK</div>
+        <div class="command-desc">從多個不同的視角和框架同時檢視一個主題。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">SYSTEMMAP</div>
+        <div class="command-desc">繪製一個系統內部的參與者、力量與相互關係。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">BLACKSWAN</div>
+        <div class="command-desc">專注分析那些罕見但影響極大的可能性。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">PARADOX</div>
+        <div class="command-desc">找出一個想法或論述內部的矛盾與張力。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">FRACTAL</div>
+        <div class="command-desc">在不同層次之間縮放，從宏觀到微觀探索主題。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">META</div>
+        <div class="command-desc">退一步檢視問題本身的框架，而不是直接回答。</div>
+      </div>
+    </section>
+
+    <!-- 七、創作與內容生產 -->
+    <section>
+      <h2>七、創作與內容生產（3 個）</h2>
+
+      <div class="command">
+        <div class="command-name">SCRIPT</div>
+        <div class="command-desc">將輸出格式化為影片腳本或對話劇本形式。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">THREAD</div>
+        <div class="command-desc">將內容整理成社群媒體串文的格式。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">/STORYMODE</div>
+        <div class="command-desc">將回答轉換成更具故事性、敘事驅動的風格。</div>
+      </div>
+    </section>
+
+    <!-- 八、實用工具指令 -->
+    <section>
+      <h2>八、實用工具指令（3 個）</h2>
+
+      <div class="command">
+        <div class="command-name">/REFRAME</div>
+        <div class="command-desc">從不同角度重新呈現同一個想法，打開新的思考方向。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">/CRITIQUE</div>
+        <div class="command-desc">審查你的作品並具體指出哪些地方需要改進。</div>
+      </div>
+
+      <div class="command">
+        <div class="command-name">/AUTOPROMPT</div>
+        <div class="command-desc">根據你的粗略需求，自動生成一個更精準有效的提示詞。</div>
+      </div>
+    </section>
+
+    <!-- 使用說明 -->
+    <div class="usage">
+      <h2>使用說明</h2>
+
+      <p><strong>跨平台通用：</strong>以上所有指令在 Claude、ChatGPT、Gemini 均可使用，效果可能略有差異。</p>
+
+      <p><strong>中文使用者建議：</strong>指令保留英文，主要需求用中文撰寫即可。</p>
+
+      <p><strong>混合使用範例：</strong></p>
+      <ul class="examples">
+        <li>「幫我分析這個商業計畫的可行性。<code>SWOT + SECONDORDER</code>」</li>
+        <li>「根據以下行程寫一段介紹文。<code>/expand /casual</code>」</li>
+        <li>「我的影片文案有哪些問題？<code>/critique /blindspot</code>」</li>
+      </ul>
+
+      <p><strong>自訂指令提示：</strong>這些指令的本質是觸發特定思考模式，你也可以自行發明。只要說清楚你要什麼模式，AI 就會進入那個狀態。</p>
+    </div>
+
+    <footer>
+      <p>整理來源：Maverick's ChatGPT Secret Codes + 補充擴充版</p>
+      <p>適用平台：Claude・ChatGPT・Gemini</p>
+      <p>olga.passione</p>
+    </footer>
+  </div>
+</body>
+</html>

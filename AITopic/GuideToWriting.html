@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI 使用指南與注意事項</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                "Noto Sans TC",
+                "Microsoft JhengHei",
+                Arial,
+                sans-serif;
+            line-height: 1.8;
+            background: #f4f7fb;
+            color: #263238;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px 60px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #164e63, #0f766e);
+            color: white;
+            padding: 45px 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            font-size: 2.2rem;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.05rem;
+            opacity: 0.92;
+        }
+
+        .intro {
+            background: white;
+            padding: 24px 28px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            border-left: 6px solid #0f766e;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 26px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-top: 5px solid #0f766e;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.11);
+        }
+
+        .card-number {
+            display: inline-flex;
+            width: 42px;
+            height: 42px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #0f766e;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .card h2 {
+            margin: 5px 0 14px;
+            font-size: 1.35rem;
+            color: #164e63;
+        }
+
+        .card p {
+            margin: 0;
+            color: #455a64;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #b45309;
+        }
+
+        .warning {
+            background: #fff7ed;
+            border-left: 5px solid #f97316;
+            padding: 14px 18px;
+            margin-top: 18px;
+            border-radius: 8px;
+            color: #7c2d12;
+        }
+
+        .database {
+            background: #ecfeff;
+            border-left: 5px solid #0891b2;
+            padding: 14px 18px;
+            margin-top: 18px;
+            border-radius: 8px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 25px;
+            color: #607d8b;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 800px) {
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 25px 15px 45px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+    <header>
+        <h1>🤖 AI 使用指南與注意事項</h1>
+        <p>
+            善用人工智慧工具，提升學習、研究與工作效率；
+            同時保持批判性思維、學術誠信與資訊安全。
+        </p>
+    </header>
+
+    <!-- Introduction -->
+    <section class="intro">
+        <strong>使用 AI 的核心原則：</strong>
+        AI 是強大的「輔助工具」，但不是最終的判斷者。
+        對於醫學、學術研究與重要決策，應始終進行獨立查證與專業判斷。
+    </section>
+
+    <!-- Guide -->
+    <section class="guide-grid">
+
+        <!-- 1 -->
+        <article class="card">
+            <div class="card-number">1</div>
+            <h2>內容正確性：保持批判性思維</h2>
+
+            <p>
+                AI 工具的回答是基於其訓練資料的統計規律，
+                可能出現「幻覺」（Hallucination），
+                即生成看似合理卻不符事實的資訊。
+            </p>
+
+            <div class="warning">
+                ⚠️ 請務必將 AI 生成的內容視為
+                <span class="highlight">初步參考</span>，
+                並透過權威資料庫、期刊文獻等多方查證
+                關鍵事實、數據與引文。
+            </div>
+        </article>
+
+
+        <!-- 2 -->
+        <article class="card">
+            <div class="card-number">2</div>
+            <h2>學術倫理：誠信與責任</h2>
+
+            <p>
+                AI 應作為輔助研究的工具，而非內容的創作者。
+                使用者本人應對產出內容的最終品質與學術誠信
+                負起完全責任。
+            </p>
+
+            <div class="warning">
+                📚 直接複製貼上 AI 生成的文字可能構成抄襲。
+                若需引用或說明 AI 的輔助，請遵循您所屬機構
+                或投稿期刊的學術倫理規範，適當揭露使用情況。
+            </div>
+        </article>
+
+
+        <!-- 3 -->
+        <article class="card">
+            <div class="card-number">3</div>
+            <h2>提示詞技巧（Prompt Engineering）</h2>
+
+            <p>
+                AI 回覆的品質高度依賴於您提問的方式。
+                一個好的提示詞應包含：
+            </p>
+
+            <ul>
+                <li><strong>背景脈絡：</strong>提供足夠的背景資訊</li>
+                <li><strong>明確指令：</strong>具體說明希望 AI 完成的任務</li>
+                <li><strong>指定角色：</strong>例如「請扮演一位臨床藥師」</li>
+                <li><strong>格式要求：</strong>例如「請用表格呈現」</li>
+            </ul>
+
+            <p>
+                透過反覆修正與追問，可以獲得更精準的答案。
+            </p>
+        </article>
+
+
+        <!-- 4 -->
+        <article class="card">
+            <div class="card-number">4</div>
+            <h2>個資與隱私</h2>
+
+            <p>
+                切勿在與 AI 的對話中輸入任何個人敏感資訊、
+                病人資料、未公開的研究數據或機密文件。
+            </p>
+
+            <div class="warning">
+                🔒 部分 AI 服務可能會將您的對話用於模型訓練，
+                輸入敏感資訊可能導致隱私外洩風險。
+            </div>
+        </article>
+
+
+        <!-- 5 -->
+        <article class="card">
+            <div class="card-number">5</div>
+            <h2>偏見與侷限性</h2>
+
+            <p>
+                AI 的知識來自其訓練資料，這可能使其回答帶有
+                特定的文化或數據偏見。
+            </p>
+
+            <p style="margin-top:15px;">
+                此外，多數 AI 有「知識截止日期」，
+                無法保證提供最新的即時資訊。
+            </p>
+
+            <div class="warning">
+                🧠 請對 AI 的回答抱持批判性態度，
+                並注意其知識範圍與資料時效性的限制。
+            </div>
+        </article>
+
+
+        <!-- 6 -->
+        <article class="card">
+            <div class="card-number">6</div>
+            <h2>智慧財產權</h2>
+
+            <p>
+                請注意您輸入資料的版權，避免上傳整篇受版權
+                保護的文獻。
+            </p>
+
+            <div class="warning">
+                ⚖️ AI 生成內容的版權歸屬在法律上仍有爭議。
+                在商業或正式出版用途上，應謹慎評估其合法性。
+            </div>
+        </article>
+
+
+        <!-- 7 -->
+        <article class="card">
+            <div class="card-number">7</div>
+            <h2>與資料庫的區別</h2>
+
+            <p>
+                AI 工具提供的是對話式的資訊整合，
+                而學術資料庫（如 PubMed、Web of Science）
+                提供的是經過同儕審查、可系統性檢索的學術文獻。
+            </p>
+
+            <div class="database">
+                📖 AI 無法取代資料庫在
+                <strong>系統性文獻回顧</strong>、
+                <strong>實證醫學研究</strong>
+                中的嚴謹性與全面性。
+            </div>
+        </article>
+
+    </section>
+
+
+    <!-- Final principle -->
+    <section class="intro" style="margin-top:30px; text-align:center;">
+        <h2 style="color:#164e63;">🎯 最重要的一句話</h2>
+
+        <p style="font-size:1.15rem;">
+            <strong>
+                「AI 可以幫你思考得更快，
+                但不能替你負責。」
+            </strong>
+        </p>
+
+        <p>
+            善用 AI、查證 AI、挑戰 AI，
+            最終仍由人做出專業判斷。
+        </p>
+    </section>
+
+
+    <footer>
+        AI 使用指南與注意事項 ｜ 醫學教育・學術研究・資訊素養
+    </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,648 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>通用型與專業型 AI 工具簡介</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family:
+            "Noto Sans TC",
+            "Microsoft JhengHei",
+            Arial,
+            sans-serif;
+        background: linear-gradient(135deg, #f5f7fa, #e8eef5);
+        color: #263238;
+        line-height: 1.7;
+    }
+
+    .hero {
+        padding: 70px 20px 55px;
+        text-align: center;
+        color: white;
+        background:
+            linear-gradient(135deg, #263238, #455a64 55%, #1565c0);
+    }
+
+    .hero h1 {
+        margin: 0 0 15px;
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        letter-spacing: 2px;
+    }
+
+    .hero p {
+        max-width: 900px;
+        margin: auto;
+        font-size: 1.08rem;
+        opacity: 0.92;
+    }
+
+    .container {
+        width: min(1400px, 94%);
+        margin: 40px auto 70px;
+    }
+
+    .section-title {
+        margin: 50px 0 25px;
+        text-align: center;
+    }
+
+    .section-title h2 {
+        margin-bottom: 8px;
+        font-size: 2rem;
+    }
+
+    .section-title p {
+        color: #607d8b;
+    }
+
+    .ai-grid {
+        display: grid;
+        grid-template-columns:
+            repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+    }
+
+    .card {
+        background: rgba(255,255,255,0.94);
+        border-radius: 20px;
+        padding: 26px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        border: 1px solid rgba(255,255,255,0.8);
+        transition: transform .25s ease, box-shadow .25s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card:hover {
+        transform: translateY(-7px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.13);
+    }
+
+    .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: #1976d2;
+    }
+
+    .icon {
+        width: 58px;
+        height: 58px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        background: #e3f2fd;
+        margin-bottom: 15px;
+    }
+
+    .card h3 {
+        margin: 0 0 4px;
+        font-size: 1.5rem;
+    }
+
+    .category {
+        display: inline-block;
+        font-size: .85rem;
+        color: #1565c0;
+        background: #e3f2fd;
+        padding: 4px 10px;
+        border-radius: 20px;
+        margin-bottom: 15px;
+    }
+
+    .card p {
+        margin: 9px 0;
+    }
+
+    .card strong {
+        color: #37474f;
+    }
+
+    .price {
+        margin-top: 18px;
+        padding: 12px 15px;
+        border-radius: 12px;
+        background: #f1f8e9;
+        color: #33691e;
+        font-weight: bold;
+    }
+
+    /* Table */
+    .table-wrapper {
+        overflow-x: auto;
+        background: white;
+        border-radius: 18px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    table {
+        width: 100%;
+        min-width: 950px;
+        border-collapse: collapse;
+    }
+
+    th {
+        background: #263238;
+        color: white;
+        padding: 16px;
+        text-align: left;
+    }
+
+    td {
+        padding: 15px 16px;
+        border-bottom: 1px solid #eceff1;
+        vertical-align: top;
+    }
+
+    tr:hover td {
+        background: #f8fafc;
+    }
+
+    td:first-child {
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    .tag {
+        display: inline-block;
+        padding: 3px 9px;
+        margin: 2px;
+        border-radius: 15px;
+        background: #eceff1;
+        font-size: .82rem;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+        padding: 35px 20px;
+        background: #263238;
+        color: #cfd8dc;
+        font-size: .9rem;
+    }
+
+    footer strong {
+        color: white;
+    }
+
+    @media (max-width: 600px) {
+        .hero {
+            padding: 50px 18px;
+        }
+
+        .card {
+            padding: 22px;
+        }
+
+        .container {
+            width: 92%;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+    <h1>🤖 通用型與專業型 AI 工具簡介</h1>
+
+    <p>
+        從通用對話模型到專業任務大師，
+        我們為您剖析各大領先平台的戰略價值，
+        助您在 AI 浪潮中做出最明智的選擇。
+    </p>
+</header>
+
+
+<main class="container">
+
+    <section>
+        <div class="section-title">
+            <h2>🌐 AI 工具介紹</h2>
+            <p>從對話、搜尋、研究到簡報與自主 Agent，一次掌握主要 AI 平台。</p>
+        </div>
+
+        <div class="ai-grid">
+
+            <!-- ChatGPT -->
+            <article class="card">
+                <div class="icon">💬</div>
+                <h3>ChatGPT</h3>
+                <span class="category">通用型對話式 AI</span>
+
+                <p>
+                    <strong>特色：</strong>
+                    擁有卓越的對話能力與多語言支援，
+                    能流暢處理長篇互動並保持上下文一致。
+                    無論是日常聊天、學習輔助或各類知識解答，
+                    都能提供快速而準確的支援。
+                </p>
+
+                <p>
+                    <strong>優點：</strong>
+                    成熟的生態系與插件商店、強大的自主任務執行能力。
+                </p>
+
+                <div class="price">
+                    💰 免費版使用基礎模型；Plus / Pro 約 $20 美元/月
+                </div>
+            </article>
+
+
+            <!-- Claude -->
+            <article class="card">
+                <div class="icon">🧠</div>
+                <h3>Claude</h3>
+                <span class="category">企業級安全與長文分析 AI</span>
+
+                <p>
+                    <strong>特色：</strong>
+                    提供安全與可控性的內容處理，
+                    並具備超長上下文視窗，
+                    擅長處理與分析海量文件。
+                </p>
+
+                <p>
+                    <strong>優點：</strong>
+                    高度的安全與倫理標準、
+                    卓越的長文閱讀理解與摘要能力。
+                </p>
+
+                <div class="price">
+                    💰 免費版功能受限；Pro 約 $20 美元/月
+                </div>
+            </article>
+
+
+            <!-- Felo -->
+            <article class="card">
+                <div class="icon">🔎</div>
+                <h3>Felo</h3>
+                <span class="category">跨語言資訊搜尋平台</span>
+
+                <p>
+                    <strong>特色：</strong>
+                    將搜尋與對話結合，
+                    使用者只需以自然語言提出問題，
+                    系統便能透過生成式 AI 快速整合多方資訊，
+                    提供智慧化搜尋體驗。
+                </p>
+
+                <p>
+                    <strong>優點：</strong>
+                    強大的多語言能力、整合工作流程、
+                    高性價比 Pro 方案。
+                </p>
+
+                <div class="price">
+                    💰 免費版功能慷慨；Pro 約 $15 美元/月
+                </div>
+            </article>
+
+
+            <!-- Gamma -->
+            <article class="card">
+                <div class="icon">📊</div>
+                <h3>Gamma</h3>
+                <span class="category">AI 簡報與網頁產生器</span>
+
+                <p>
+                    <strong>特色：</strong>
+                    只需提供一段文字或文件，
+                    就能立即生成專業簡報，
+                    並根據內容自動匹配圖片，
+                    讓簡報更具說服力與視覺吸引力。
+                </p>
+
+                <p>
+                    <strong>優點：</strong>
+                    生成速度快、易於使用、設計品質高、互動性強。
+                </p>
+
+                <div class="price">
+                    💰 免費版帶有品牌標識；
+                    Plus 約 $8/月；Pro 約 $15/月
+                </div>
+            </article>
+
+
+            <!-- Gemini -->
+            <article class="card">
+                <div class="icon">✨</div>
+                <h3>Gemini</h3>
+                <span class="category">Google 生態系 AI 助理</span>
+
+                <p>
+                    <strong>特色：</strong>
+                    Google 推出的大型語言模型，
+                    可應用於文本生成、翻譯、程式碼編寫等多種場景。
+                </p>
+
+                <p>
+                    <strong>優點：</strong>
+                    與 Google 生態系無縫整合、
+                    龐大的上下文處理能力、
+                    高度個人化的使用體驗。
+                </p>
+
+                <div class="price">
+                    💰 免費版使用基礎模型；
+                    Google One AI Premium 約 $20/月
+                </div>
+            </article>
+
+
+            <!-- Grok -->
+            <article class="card">
+                <div class="icon">⚡</div>
+                <h3>Grok</h3>
+                <span class="category">即時資訊對話式 AI</span>
+
+                <p>
+                    <strong>特色：</strong>
+                    即時掌握 X（Twitter）資訊，
+                    支援多模式智慧應用，
+                    並結合圖片生成與語音互動。
+                </p>
+
+                <p>
+                    <strong>優點：</strong>
+                    即時資訊獲取能力、
+                    獨特的對話個性、趨勢分析能力。
+                </p>
+
+                <div class="price">
+                    💰 X Premium+ 約 $40 美元/月或獨立訂閱方案
+                </div>
+            </article>
+
+
+            <!-- Manus -->
+            <article class="card">
+                <div class="icon">🤖</div>
+                <h3>Manus</h3>
+                <span class="category">自主 AI 助手</span>
+
+                <p>
+                    <strong>特色：</strong>
+                    中國新創公司 Monica 於 2025 年 3 月推出的
+                    通用型 AI Agent，定位為能將想法轉化為行動的智慧助手。
+                </p>
+
+                <p>
+                    <strong>優點：</strong>
+                    真正的自主 AI、高效率與生產力、多功能性。
+                </p>
+
+                <div class="price">
+                    💰 採用點數制的分層訂閱方案
+                </div>
+            </article>
+
+
+            <!-- Napkin -->
+            <article class="card">
+                <div class="icon">🧩</div>
+                <h3>Napkin</h3>
+                <span class="category">視覺化知識整理工具</span>
+
+                <p>
+                    <strong>特色：</strong>
+                    將文字快速轉換為流程圖、
+                    甘特圖、心智圖等視覺化圖表。
+                    無需設計技巧，只需輸入文字即可自動生成圖表。
+                </p>
+
+                <p>
+                    <strong>優點：</strong>
+                    強化視覺化溝通與理解力、
+                    腦力激盪與協作、自動化整理。
+                </p>
+
+                <div class="price">
+                    💰 免費版有點數限制；
+                    Plus $12/月；Pro $30/月
+                </div>
+            </article>
+
+
+            <!-- NotebookLM -->
+            <article class="card">
+                <div class="icon">📚</div>
+                <h3>NotebookLM</h3>
+                <span class="category">個人化知識管理工具</span>
+
+                <p>
+                    <strong>特色：</strong>
+                    Google 開發的 AI 筆記助理，
+                    專為研究與寫作設計。
+                    能讀取文件、生成摘要、回答問題與提供相關資訊。
+                </p>
+
+                <p>
+                    <strong>優點：</strong>
+                    高度信任與可驗證性、
+                    與 Google Drive 整合、
+                    深度分析能力強。
+                </p>
+
+                <div class="price">
+                    💰 免費版有限制；
+                    Plus 可透過 Google One AI Premium 約 $20/月獲得
+                </div>
+            </article>
+
+
+            <!-- Perplexity -->
+            <article class="card">
+                <div class="icon">🌐</div>
+                <h3>Perplexity</h3>
+                <span class="category">對話式 AI 搜尋引擎</span>
+
+                <p>
+                    <strong>特色：</strong>
+                    結合搜尋引擎與對話式 AI，
+                    能即時蒐集多方來源資訊，
+                    並提供深入、全面的解答。
+                </p>
+
+                <p>
+                    <strong>優點：</strong>
+                    答案附有來源引文、透明度高、
+                    整合多種大型語言模型、團隊協作功能實用。
+                </p>
+
+                <div class="price">
+                    💰 免費版使用自有模型；
+                    Pro 約 $20 美元/月
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- Matrix -->
+    <section>
+
+        <div class="section-title">
+            <h2>📋 通用型 AI 工具矩陣總覽</h2>
+            <p>快速比較各平台的核心定位、特色與主要付費方案。</p>
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>工具</th>
+                        <th>核心功能</th>
+                        <th>特色</th>
+                        <th>主要付費方案</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>ChatGPT</td>
+                        <td>通用對話與自主任務</td>
+                        <td>
+                            <span class="tag">GPT-5</span>
+                            <span class="tag">Agent</span>
+                        </td>
+                        <td>Plus / Pro：約 $20 美元/月</td>
+                    </tr>
+
+                    <tr>
+                        <td>Claude</td>
+                        <td>安全長文分析與程式編寫</td>
+                        <td>
+                            <span class="tag">企業安全</span>
+                            <span class="tag">長上下文</span>
+                        </td>
+                        <td>Pro：約 $20 美元/月</td>
+                    </tr>
+
+                    <tr>
+                        <td>Felo</td>
+                        <td>跨語言資訊處理</td>
+                        <td>
+                            <span class="tag">多語言</span>
+                            <span class="tag">會議翻譯</span>
+                        </td>
+                        <td>Pro：約 $15 美元/月</td>
+                    </tr>
+
+                    <tr>
+                        <td>Gamma</td>
+                        <td>AI 簡報與網頁生成</td>
+                        <td>
+                            <span class="tag">互動簡報</span>
+                            <span class="tag">數據儀表板</span>
+                        </td>
+                        <td>
+                            Plus：約 $8/月；
+                            Pro：約 $15/月
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Gemini</td>
+                        <td>整合生態系的主動式助理</td>
+                        <td>
+                            <span class="tag">Google</span>
+                            <span class="tag">跨應用</span>
+                        </td>
+                        <td>Google One AI Premium：約 $20/月</td>
+                    </tr>
+
+                    <tr>
+                        <td>Grok</td>
+                        <td>即時資訊對話與分析</td>
+                        <td>
+                            <span class="tag">X 即時資訊</span>
+                            <span class="tag">趨勢分析</span>
+                        </td>
+                        <td>X Premium+：約 $40/月</td>
+                    </tr>
+
+                    <tr>
+                        <td>Manus</td>
+                        <td>自主 AI 助手</td>
+                        <td>
+                            <span class="tag">AI Agent</span>
+                            <span class="tag">商業分析</span>
+                        </td>
+                        <td>點數制分層訂閱</td>
+                    </tr>
+
+                    <tr>
+                        <td>Napkin</td>
+                        <td>視覺化知識整理</td>
+                        <td>
+                            <span class="tag">心智圖</span>
+                            <span class="tag">流程圖</span>
+                        </td>
+                        <td>
+                            Plus：$12/月；
+                            Pro：$30/月
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>NotebookLM</td>
+                        <td>個人化知識庫問答</td>
+                        <td>
+                            <span class="tag">文件分析</span>
+                            <span class="tag">多文件比較</span>
+                        </td>
+                        <td>Plus：約 $20/月</td>
+                    </tr>
+
+                    <tr>
+                        <td>Perplexity</td>
+                        <td>對話式 AI 搜尋引擎</td>
+                        <td>
+                            <span class="tag">來源引用</span>
+                            <span class="tag">研究協作</span>
+                        </td>
+                        <td>Pro：約 $20/月</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <strong>AI 工具比較與應用指南</strong><br>
+    通用 AI × 搜尋 × 知識管理 × 簡報 × AI Agent
+    <br><br>
+    ※ 價格與功能可能隨各平台政策調整，實際資訊請以官方公告為準。
+</footer>
+
+</body>
+</html>
+```
