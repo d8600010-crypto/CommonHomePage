@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>吉米醫師常用網頁 - 入口網站</title>
+<style>
+:root {
+    --bg-1: #eef2ff; --bg-2: #f7f9fc; --bg-3: #e0f2fe;
+    --ink: #172033; --ink-soft: #5b6472; --ink-faint: #8b93a1;
+    --surface: rgba(255, 255, 255, 0.95); --surface-border: rgba(226, 232, 240, 0.9);
+    --line: #e6eaf1; --brand: #2563eb; --brand-dark: #111827;
+    --shadow-sm: 0 6px 18px rgba(15, 23, 42, 0.06); --shadow-md: 0 14px 34px rgba(15, 23, 42, 0.10);
+    --radius-md: 16px;
+    --accent-ai: #2563eb; --accent-tools: #7c3aed; --accent-med: #0d9488;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+    color: var(--ink); min-height: 100vh;
+    background: linear-gradient(150deg, var(--bg-1) 0%, var(--bg-2) 45%, var(--bg-3) 100%);
+    background-attachment: fixed;
+}
+header { padding: 30px 20px 15px; text-align: center; }
+.logo {
+    width: 64px; height: 64px; margin: auto; border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--brand-dark), var(--brand));
+    color: white; font-size: 28px; font-weight: 800; box-shadow: var(--shadow-md);
+}
+h1 { margin: 12px 0 4px; font-size: 26px; font-weight: 800; }
+.subtitle { color: var(--ink-soft); font-size: 13.5px; margin-bottom: 15px; }
+/* Tab Navigation Bar */
+.tabs-nav-container { max-width: 1180px; margin: 0 auto 15px; padding: 0 20px; }
+.tabs-nav { display: flex; gap: 8px; overflow-x: auto; border-bottom: 2px solid var(--line); padding-bottom: 6px; }
+.tab-btn {
+    padding: 10px 18px; border: 1px solid transparent; border-bottom: none;
+    border-radius: 12px 12px 0 0; background: rgba(255, 255, 255, 0.6);
+    color: var(--ink-soft); font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap;
+}
+.tab-btn:hover { background: #fff; color: var(--brand); }
+.tab-btn.active { background: #fff; color: var(--brand); border-color: var(--line); border-bottom: 3px solid var(--brand); }
+/* Controls & Search */
+.toolbar { max-width: 1180px; margin: 0 auto 20px; padding: 0 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+.search-box {
+    flex: 1; min-width: 240px; padding: 12px 18px; border: 1px solid var(--line); border-radius: 12px;
+    outline: none; background: var(--surface); font-size: 14.5px; box-shadow: var(--shadow-sm);
+}
+.btn {
+    padding: 12px 18px; border: none; border-radius: 12px; background: var(--brand);
+    color: #fff; font-size: 14px; font-weight: 600; cursor: pointer; transition: opacity 0.15s;
+}
+.btn:hover { opacity: 0.9; }
+.btn-secondary { background: #64748b; }
+main { width: min(1180px, 94%); margin: 0 auto 60px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; min-height: 80px; }
+/* Interactive Cards */
+.card {
+    position: relative; display: flex; flex-direction: column; padding: 18px;
+    border-radius: var(--radius-md); text-decoration: none; color: inherit; background: var(--surface);
+    border: 1px solid var(--surface-border); box-shadow: var(--shadow-sm); transition: transform 0.15s, box-shadow 0.15s;
+    cursor: grab;
+}
+.card:active { cursor: grabbing; }
+.card.dragging { opacity: 0.4; transform: scale(0.98); }
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+.icon {
+    width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    background: #eff6ff; color: var(--brand); font-size: 16px; font-weight: 800;
+}
+.card-actions { display: flex; gap: 4px; }
+.action-btn {
+    background: none; border: none; cursor: pointer; font-size: 13px; color: var(--ink-faint); padding: 2px 6px; border-radius: 6px;
+}
+.action-btn:hover { background: #e2e8f0; color: var(--ink); }
+.card h3 { margin: 0 0 6px; font-size: 15px; font-weight: 700; word-break: break-word; }
+.card p { margin: 0; color: var(--ink-soft); font-size: 12.5px; line-height: 1.5; word-break: break-word; }
+.card-meta { margin-top: auto; padding-top: 10px; display: flex; justify-content: space-between; align-items: center; }
+.account-badge { font-size: 11px; background: #f1f5f9; padding: 3px 8px; border-radius: 6px; color: var(--ink-soft); font-weight: 600; }
+.card-link { font-size: 12px; font-weight: 700; color: var(--brand); text-decoration: none; display: flex; align-items: center; gap: 2px; }
+footer { text-align: center; padding: 25px; color: var(--ink-faint); font-size: 12.5px; border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<header>
+    <div class="logo">Δ</div>
+    <h1>吉米醫師常用網頁</h1>
+    <p class="subtitle">AI 人工智慧・醫療雲端・工作與生產力工具・可拖曳編輯入口</p>
+</header>
+<div class="tabs-nav-container">
+    <nav class="tabs-nav">
+        <a href="index.html" class="tab-btn active">吉米醫師常用網頁</a>
+        <a href="delta.html" class="tab-btn">台達駐廠常用網頁</a>
+        <a href="cgu.html" class="tab-btn">我的對的學校常用網頁</a>
+        <a href="ntsu.html" class="tab-btn">我的好學校常用網頁</a>
+        <a href="cgmh-med.html" class="tab-btn">我的醫院醫用常用網頁</a>
+        <a href="cgmh-admin.html" class="tab-btn">我的醫院行政常用網頁</a>
+    </nav>
+</div>
+<div class="toolbar">
+    <input id="search" class="search-box" type="search" placeholder="🔍 搜尋本頁卡片..." onkeyup="filterCards()">
+    <button class="btn" onclick="addNewCard()">+ 新增卡片</button>
+    <button class="btn btn-secondary" onclick="resetDefaultCards()">↺ 還原預設</button>
+</div>
+<main>
+    <div id="cardGrid" class="grid"></div>
+</main>
+<footer>
+    <strong>吉米醫師常用網頁</strong> • 拖曳卡片即可排序，變更將自動儲存於目前頁面。<br>© 2026 Jimmy Doctor
+</footer>
+<script>
+const STORAGE_KEY = "tab_jimmy_cards_v1";
+const defaultCards = [
+    { id: "1", title: "ChatGPT", desc: "AI 人工智慧助理，寫作、研究與程式設計。", url: "https://chatgpt.com/", icon: "◎", meta: "AI" },
+    { id: "2", title: "Claude AI", desc: "Anthropic AI 助理，長文、推理與文件處理。", url: "https://claude.ai/", icon: "C", meta: "AI" },
+    { id: "3", title: "Grok", desc: "xAI 人工智慧助理。", url: "https://grok.com/", icon: "X", meta: "AI" },
+    { id: "4", title: "Gemini", desc: "Google AI 助理，問答與研究規劃。", url: "https://gemini.google.com/", icon: "✦", meta: "AI" },
+    { id: "5", title: "NotebookLM", desc: "AI 研究與筆記工具。", url: "https://notebooklm.google.com/", icon: "▤", meta: "AI" },
+    { id: "6", title: "GitHub Repository", desc: "專案原始碼與版本控制。", url: "https://github.com/DeltaOnDutyDoctor/DrDeltaChenHomePage", icon: "⚙️", meta: "Dev" },
+    { id: "7", title: "臨床工具集", desc: "急診與臨床醫療輔助工具入口。", url: "https://cgmherlink-hub.github.io/ClinicalTool/", icon: "🩺", meta: "Tool" },
+    { id: "8", title: "廠區報備", desc: "臨場健康服務與報備資料管理系統。", url: "https://cgmherlink-hub.github.io/ReportData/", icon: "📋", meta: "Tool" },
+    { id: "9", title: "長庚雲端", desc: "長庚紀念醫院雲端服務入口。", url: "https://cloud.cgmh.org.tw/", icon: "🏥", meta: "Med" },
+    { id: "10", title: "Gmail", desc: "Google 電子郵件服務。", url: "https://mail.google.com/", icon: "✉️", meta: "Mail" },
+    { id: "11", title: "Hinet 信箱", desc: "Hinet 郵件管理入口。", url: "https://webmail.hinet.net/", icon: "📧", meta: "Mail" },
+    { id: "12", title: "UpToDate", desc: "實證醫學臨床決策支援系統。", url: "https://www.uptodate.com", icon: "📚", meta: "Med" },
+    { id: "13", title: "Blogger", desc: "部落格文章發布與管理。", url: "https://www.blogger.com/", icon: "B", meta: "Blog" },
+    { id: "14", title: "Evernote", desc: "筆記與知識管理。", url: "https://evernote.com/", icon: "E", meta: "Note" },
+    { id: "15", title: "Hinet 信箱", desc: "Hinet 郵件管理入口。", url: "https://webmail.hinet.net/", icon: "📧", meta: "Mail" },
+    { id: "16", title: "Delta Health Page", desc: "健康資訊、醫療資源與健康相關工具入口。", url: "https://hmstw-admin.deltaww.com/es-delta/main.init.do", icon: "❤️", meta: "Med" }
+];
+let cards = loadCards();
+function loadCards() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return saved ? JSON.parse(saved) : [...defaultCards];
+}
+function saveCards() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(cards));
+}
+function renderCards() {
+    const grid = document.getElementById("cardGrid");
+    grid.innerHTML = "";
+    
+    cards.forEach((card, index) => {
+        const el = document.createElement("div");
+        el.className = "card";
+        el.draggable = true;
+        el.dataset.index = index;
+        
+        el.innerHTML = `
+            <div class="card-header">
+                <div class="icon">${card.icon || '🔗'}</div>
+                <div class="card-actions">
+                    <button class="action-btn" onclick="editCard('${card.id}')" title="編輯">✏️</button>
+                    <button class="action-btn" onclick="deleteCard('${card.id}')" title="刪除">🗑️</button>
+                </div>
+            </div>
+            <h3>${escapeHtml(card.title)}</h3>
+            <p>${escapeHtml(card.desc)}</p>
+            <div class="card-meta">
+                <span class="account-badge">${escapeHtml(card.meta || '連結')}</span>
+                <a href="${escapeHtml(card.url)}" target="_blank" class="card-link" onclick="event.stopPropagation()">開啟 ↗</a>
+            </div>
+        `;
+        // Drag & Drop Listeners
+        el.addEventListener("dragstart", handleDragStart);
+        el.addEventListener("dragover", handleDragOver);
+        el.addEventListener("drop", handleDrop);
+        el.addEventListener("dragend", handleDragEnd);
+        grid.appendChild(el);
+    });
+}
+/* Drag and Drop Handlers */
+let draggedIndex = null;
+function handleDragStart(e) {
+    draggedIndex = +this.dataset.index;
+    this.classList.add("dragging");
+    e.dataTransfer.effectAllowed = "move";
+}
+function handleDragOver(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+}
+function handleDrop(e) {
+    e.preventDefault();
+    const targetIndex = +this.dataset.index;
+    if (draggedIndex === null || draggedIndex === targetIndex) return;
+    const draggedItem = cards.splice(draggedIndex, 1)[0];
+    cards.splice(targetIndex, 0, draggedItem);
+    
+    saveCards();
+    renderCards();
+}
+function handleDragEnd() {
+    this.classList.remove("dragging");
+    draggedIndex = null;
+}
+/* In-Place Editing Features */
+function editCard(id) {
+    const card = cards.find(c => c.id === id);
+    if (!card) return;
+    const newTitle = prompt("修改名稱：", card.title);
+    if (newTitle === null) return;
+    
+    const newUrl = prompt("修改網址 (URL)：", card.url);
+    if (newUrl === null) return;
+    const newDesc = prompt("修改描述：", card.desc);
+    if (newDesc === null) return;
+    const newMeta = prompt("修改標籤/帳號：", card.meta);
+    if (newMeta === null) return;
+    card.title = newTitle.trim() || card.title;
+    card.url = newUrl.trim() || card.url;
+    card.desc = newDesc.trim() || card.desc;
+    card.meta = newMeta.trim() || card.meta;
+    saveCards();
+    renderCards();
+}
+function addNewCard() {
+    const title = prompt("卡片名稱：", "新常用連結");
+    if (!title) return;
+    
+    const url = prompt("網址 (URL)：", "https://");
+    if (!url) return;
+    const desc = prompt("描述：", "常用功能說明");
+    const meta = prompt("標籤/備註：", "自訂");
+    const newCard = {
+        id: Date.now().toString(),
+        title: title.trim(),
+        url: url.trim(),
+        desc: desc ? desc.trim() : "",
+        meta: meta ? meta.trim() : "自訂",
+        icon: "📌"
+    };
+    cards.unshift(newCard);
+    saveCards();
+    renderCards();
+}
+function deleteCard(id) {
+    if (!confirm("確定要刪除這張卡片嗎？")) return;
+    cards = cards.filter(c => c.id !== id);
+    saveCards();
+    renderCards();
+}
+function resetDefaultCards() {
+    if (confirm("確定要恢復預設卡片排列與內容嗎？")) {
+        cards = [...defaultCards];
+        saveCards();
+        renderCards();
+    }
+}
+function filterCards() {
+    const query = document.getElementById("search").value.toLowerCase();
+    document.querySelectorAll(".card").forEach(el => {
+        const text = el.innerText.toLowerCase();
+        el.style.display = text.includes(query) ? "flex" : "none";
+    });
+}
+function escapeHtml(str) {
+    return String(str || '').replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+// Initial Render
+renderCards();
+</script>
+</body>
+</html>

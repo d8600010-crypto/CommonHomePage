@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的醫院行政常用網頁 - 入口網站</title>
+<style>
+:root {
+    --bg-1: #eef2ff; --bg-2: #f7f9fc; --bg-3: #e0f2fe;
+    --ink: #172033; --ink-soft: #5b6472; --ink-faint: #8b93a1;
+    --surface: rgba(255, 255, 255, 0.95); --surface-border: rgba(226, 232, 240, 0.9);
+    --line: #e6eaf1; --brand: #0d9488; --brand-dark: #042f2e;
+    --shadow-sm: 0 6px 18px rgba(15, 23, 42, 0.06); --shadow-md: 0 14px 34px rgba(15, 23, 42, 0.10);
+    --radius-md: 16px; --radius-lg: 20px;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+    color: var(--ink); min-height: 100vh;
+    background: linear-gradient(150deg, var(--bg-1) 0%, var(--bg-2) 45%, var(--bg-3) 100%);
+    background-attachment: fixed;
+}
+header { padding: 30px 20px 15px; text-align: center; }
+.logo {
+    width: 64px; height: 64px; margin: auto; border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, var(--brand-dark), var(--brand));
+    color: white; font-size: 28px; font-weight: 800; box-shadow: var(--shadow-md);
+}
+h1 { margin: 12px 0 4px; font-size: 26px; font-weight: 800; }
+.subtitle { color: var(--ink-soft); font-size: 13.5px; margin-bottom: 15px; }
+/* Navigation */
+.tabs-nav-container { max-width: 1180px; margin: 0 auto 15px; padding: 0 20px; }
+.tabs-nav { display: flex; gap: 8px; overflow-x: auto; border-bottom: 2px solid var(--line); padding-bottom: 6px; }
+.tab-btn {
+    padding: 10px 18px; border: 1px solid transparent; border-bottom: none;
+    border-radius: 12px 12px 0 0; background: rgba(255, 255, 255, 0.6);
+    color: var(--ink-soft); font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap;
+}
+.tab-btn:hover { background: #fff; color: var(--brand); }
+.tab-btn.active { background: #fff; color: var(--brand); border-color: var(--line); border-bottom: 3px solid var(--brand); }
+/* Controls */
+.toolbar { max-width: 1180px; margin: 0 auto 20px; padding: 0 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+.search-box {
+    flex: 1; min-width: 240px; padding: 12px 18px; border: 1px solid var(--line); border-radius: 12px;
+    outline: none; background: var(--surface); font-size: 14.5px; box-shadow: var(--shadow-sm);
+}
+.btn {
+    padding: 12px 18px; border: none; border-radius: 12px; background: var(--brand);
+    color: #fff; font-size: 14px; font-weight: 600; cursor: pointer; transition: opacity 0.15s;
+}
+.btn:hover { opacity: 0.9; }
+.btn-secondary { background: #64748b; }
+main { max-width: 1180px; margin: 0 auto 60px; padding: 0 20px; box-sizing: border-box; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); grid-auto-flow: dense; gap: 16px; min-height: 80px; }
+/* Cards */
+.card {
+    position: relative; display: flex; flex-direction: column; padding: 18px;
+    border-radius: var(--radius-md); text-decoration: none; color: inherit; background: var(--surface);
+    border: 1px solid var(--surface-border); box-shadow: var(--shadow-sm); transition: transform 0.15s, box-shadow 0.15s;
+    cursor: grab;
+}
+.card:active { cursor: grabbing; }
+.card.dragging { opacity: 0.4; transform: scale(0.98); }
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; gap: 8px; }
+.icon {
+    width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    background: #ccfbf1; color: var(--brand); font-size: 16px; font-weight: 800; flex-shrink: 0;
+}
+.card-actions { display: flex; gap: 4px; flex-shrink: 0; }
+.action-btn { background: none; border: none; cursor: pointer; font-size: 13px; color: var(--ink-faint); padding: 2px 6px; border-radius: 6px; }
+.action-btn:hover { background: #e2e8f0; color: var(--ink); }
+.card h3 { margin: 0 0 6px; font-size: 15px; font-weight: 700; word-break: break-word; overflow-wrap: anywhere; }
+.card p { margin: 0; color: var(--ink-soft); font-size: 12.5px; line-height: 1.5; word-break: break-word; overflow-wrap: anywhere; }
+.card-meta { margin-top: auto; padding-top: 10px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.account-badge { font-size: 11px; background: #f1f5f9; padding: 3px 8px; border-radius: 6px; color: var(--ink-soft); font-weight: 600; white-space: nowrap; }
+.card-link { font-size: 12px; font-weight: 700; color: var(--brand); text-decoration: none; display: flex; align-items: center; gap: 2px; white-space: nowrap; }
+/* Login-style cards (EmyWay only now) */
+.card.card-wide { grid-column: span 2; }
+@media (max-width: 520px) { .card.card-wide { grid-column: span 1; } }
+.login-info { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); display: grid; gap: 10px; }
+.login-info label { display: block; font-size: 12px; font-weight: 700; color: var(--ink-soft); margin-bottom: 6px; }
+.login-info input[type="text"] {
+    width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px;
+    font-size: 14px; font-family: inherit; outline: none; background: #fff; color: var(--ink);
+}
+.login-info input[type="text"]:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(13,148,136,0.14); }
+.account-row { display: flex; justify-content: space-between; align-items: center; background: #f6f8fb; padding: 9px 12px; border-radius: 9px; font-size: 13px; gap: 8px; }
+.account-row strong { font-weight: 700; word-break: break-all; }
+.account-row button { padding: 5px 10px; border: none; border-radius: 7px; cursor: pointer; background: #e9edf3; font-size: 12px; line-height: 1; flex-shrink: 0; }
+.account-row button:hover { background: #dde3ec; }
+.emy-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-align: center;
+    padding: 11px; background: var(--brand); color: #fff; text-decoration: none; border-radius: 10px;
+    font-weight: 700; font-size: 13.5px;
+}
+.emy-btn:hover { opacity: 0.9; }
+/* WebSpace panel card */
+.card.card-workspace { grid-column: 1 / -1; cursor: default; }
+.ws-intro { color: var(--ink-soft); font-size: 13px; line-height: 1.7; margin: 4px 0 16px; }
+.ws-field { margin-bottom: 14px; }
+.ws-field label { display: block; font-size: 12.5px; font-weight: 700; color: var(--ink-soft); margin-bottom: 6px; }
+.ws-field input, .ws-field textarea {
+    width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px;
+    font-size: 14px; font-family: inherit; color: var(--ink); outline: none; background: #fff;
+}
+.ws-field input:focus, .ws-field textarea:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(13,148,136,0.14); }
+.ws-field textarea { min-height: 120px; resize: vertical; line-height: 1.6; }
+.ws-buttons { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+.ws-buttons button { border: none; border-radius: 10px; padding: 11px 18px; font-size: 13.5px; font-weight: 700; cursor: pointer; font-family: inherit; }
+.ws-save { background: var(--brand); color: #fff; }
+.ws-save:hover { opacity: 0.9; }
+.ws-clear { background: #eef1f6; color: var(--ink); }
+.ws-clear:hover { background: #e3e8f0; }
+.ws-search-row { margin: 22px 0 14px; }
+.ws-records { display: grid; gap: 12px; }
+.ws-record { background: #f8fafc; border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; }
+.ws-record-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
+.ws-filename { font-size: 15px; font-weight: 700; color: var(--ink); word-break: break-word; }
+.ws-date { font-size: 11.5px; color: var(--ink-faint); margin-top: 2px; }
+.ws-record-content {
+    margin-top: 10px; white-space: pre-wrap; line-height: 1.7; font-size: 13px; color: var(--ink-soft);
+    background: #fff; border: 1px solid var(--line); padding: 12px 14px; border-radius: 10px; overflow-wrap: anywhere;
+}
+.ws-delete { background: #fee2e2; color: #b91c1c; border: none; padding: 7px 12px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; flex-shrink: 0; }
+.ws-delete:hover { background: #fecaca; }
+.ws-empty { text-align: center; padding: 30px; color: var(--ink-faint); font-size: 13px; }
+footer { text-align: center; padding: 25px; color: var(--ink-faint); font-size: 12.5px; border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<header>
+    <div class="logo">🩺</div>
+    <h1>我的醫院行政常用網頁</h1>
+    <p class="subtitle">長庚醫療體系・臨床雲端・UpToDate 與醫療資訊整合入口・可拖曳編輯入口</p>
+</header>
+<div class="tabs-nav-container">
+    <nav class="tabs-nav">
+        <a href="index.html" class="tab-btn">吉米醫師常用網頁</a>
+        <a href="delta.html" class="tab-btn">台達駐廠常用網頁</a>
+        <a href="cgu.html" class="tab-btn">我的對的學校常用網頁</a>
+        <a href="ntsu.html" class="tab-btn">我的好學校常用網頁</a>
+        <a href="cgmh-med.html" class="tab-btn">我的醫院醫用常用網頁</a>
+        <a href="cgmh-admin.html" class="tab-btn active">我的醫院行政常用網頁</a>
+    </nav>
+</div>
+<div class="toolbar">
+    <input id="search" class="search-box" type="search" placeholder="🔍 搜尋醫用卡片..." onkeyup="filterCards()">
+    <button class="btn" onclick="addNewCard()">+ 新增卡片</button>
+    <button class="btn btn-secondary" onclick="resetDefaultCards()">↺ 還原預設</button>
+</div>
+<main>
+    <div id="cardGrid" class="grid"></div>
+</main>
+<footer>
+    <strong>我的醫院行政常用網頁</strong> • 獨立分頁儲存機制，拖曳卡片即可排序。<br>© 2026 Jimmy Doctor
+</footer>
+<script>
+const STORAGE_KEY = "tab_cgmh_admin_cards_v1";
+const WS_API_URL = "https://script.google.com/macros/s/AKfycbx-GzQCysu0nQU0V586ihU6q9JuyHnkniND8v5nsNorKQdUOvhHSQNXqxD-rN11lwT-/exec";
+/* ==========================================================
+   Default card set. Login-style cards (Hinet / CGU Mail /
+   UpToDate) no longer store account/password data — they are
+   plain links now. EmyWay stays as-is since it derives its
+   values live from a doctor ID typed in by the user, rather
+   than storing any credential.
+========================================================== */
+const defaultCards = [
+    // -------- 01 AI 人工智慧 --------
+    { id: "ai-1", type: "link", title: "ChatGPT", desc: "AI 人工智慧助理。適合寫作、研究、分析、程式設計與內容創作。", url: "https://chatgpt.com/", icon: "◎", meta: "AI" },
+    { id: "ai-2", type: "link", title: "Claude AI", desc: "Anthropic AI 助理。適合長文、推理、研究與文件處理。", url: "https://claude.ai/", icon: "C", meta: "AI" },
+    { id: "ai-3", type: "link", title: "Grok", desc: "xAI 人工智慧助理。適合即時資訊、推理與內容創作。", url: "https://grok.com/", icon: "X", meta: "AI" },
+    { id: "ai-4", type: "link", title: "Gemini", desc: "Google AI 助理。適合問答、研究、規劃與學習。", url: "https://gemini.google.com/", icon: "✦", meta: "AI" },
+    { id: "ai-5", type: "link", title: "NotebookLM", desc: "AI 研究與筆記工具。可利用自己的文件與資料進行研究。", url: "https://notebooklm.google.com/", icon: "▤", meta: "AI" },
+    { id: "ai-6", type: "link", title: "AI Portal", desc: "AI 工具入口頁。整合更多 AI 相關網站與服務。", url: "AIPortal.html", icon: "🗂️", meta: "AI" },
+    // -------- 開發與臨場工具 --------
+    { id: "tool-1", type: "link", title: "GitHub Repository", desc: "個人主頁專案原始碼與版本控制。查看 Repository 程式碼、Commit 紀錄與開發進度。", url: "https://github.com/DeltaOnDutyDoctor/DrDeltaChenHomePage", icon: "<svg height=\"18\" width=\"18\" viewBox=\"0 0 16 16\" fill=\"currentColor\"><path d=\"M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z\"/></svg>", meta: "工具" },
+    { id: "tool-2", type: "link", title: "臨床工具集", desc: "急診與臨床醫療輔助工具入口。整合醫學計算機、處置指引與實用臨床資源。", url: "https://cgmherlink-hub.github.io/ClinicalTool/", icon: "<svg height=\"18\" width=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4.8 2.3A.3.3 0 0 0 4.5 2h-1a.3.3 0 0 0-.3.3V7a5 5 0 0 0 10 0V2.3a.3.3 0 0 0-.3-.3h-1a.3.3 0 0 0-.3.3V7a3 3 0 0 1-6 0V2.3z\"/><path d=\"M8 12v1a5 5 0 0 0 5 5h1a5 5 0 0 0 5-5v-1\"/><circle cx=\"19\" cy=\"11\" r=\"2\"/></svg>", meta: "工具" },
+    { id: "tool-3", type: "link", title: "廠區報備", desc: "廠區臨場健康服務與報備資料管理系統。用於紀錄、追蹤與查詢廠區相關業務。", url: "https://cgmherlink-hub.github.io/ReportData/", icon: "<svg height=\"18\" width=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"/><rect x=\"8\" y=\"2\" width=\"8\" height=\"4\" rx=\"1\" ry=\"1\"/><path d=\"M9 12h6\"/><path d=\"M9 16h6\"/></svg>", meta: "工具" },
+    // -------- 02 醫療・工作・內容 --------
+    { id: "med-1", type: "link", title: "長庚雲端", desc: "長庚紀念醫院雲端服務入口。", url: "https://cloud.cgmh.org.tw/", icon: "🏥", meta: "醫療" },
+    { id: "med-2", type: "link", title: "長庚學習網", desc: "長庚體系數位學習與課程平台入口。", url: "https://cghadfs.cgmh.org.tw/adfs/oauth2/authorize/?client_id=46a3a7cd-7be5-4dd8-a14d-9a4ae4b94e62&redirect_uri=https%3A%2F%2Fllg.cgmh.org.tw%2Fsignin-oidc&response_type=code&scope=openid%20profile&response_mode=form_post&nonce=639236112924812003.ODU3Njc5NDctODc4MS00MjlkLWI4NDYtYmRhYjg3NjkwODZmOWE5Zjc4NmUtYmI4MC00YzdlLWI0MDQtM2I3ZWI4NzhmODc2&state=CfDJ8CUW_Yyf6C5MmdCwCuuhKQoKV9EHtTCLb2q0rErOXWP464mF6XB6exBGukD6tGJvxSvhPy4KgF1GEArjjxzTx9RMSt7pqo7ZL-65WfcvNA_nSD37Wq_fhSIxQPgWCLDh-GxwRUBLkq5-O2uDQSjo2qar2a_kfE1Kh7DSweRorVaW1MlBHtxAkSx_dVnn3rXSZWaW14seVqfxHoHyFfVRc-f2-aMRohvINsyRFftF6WeU2GiNvxkdz_MNPI60lALw0OS7ra0B5QmfXfO-q4soJPb96HctAqKAqcQJr0AoGVTH&x-client-SKU=ID_NET8_0&x-client-ver=7.1.2.0", icon: "🎓", meta: "醫療" },
+    { id: "med-3", type: "link", title: "長庚即時通", desc: "長庚體系內部即時通訊系統入口。", url: "https://cghmesg.cgmh.org.tw/", icon: "💬", meta: "醫療" },
+    { id: "med-4", type: "link", title: "Gmail", desc: "Google 電子郵件服務。查看收件匣、寄送郵件與管理信件。", url: "https://mail.google.com/mail/u/0/#inbox", icon: "✉️", meta: "郵件" },
+    { id: "med-5", type: "link", title: "Hinet 信箱", desc: "中華電信 Hinet Webmail。點擊開啟信箱。", icon: "📧", meta: "郵件", url: "https://webmail.hinet.net/" },
+    { id: "med-6", type: "link", title: "我的對的學校信箱", desc: "我的對的學校電子郵件系統。點擊開啟 Mail。", icon: "📧", meta: "郵件", url: "https://mail01.cgu.edu.tw" },
+    { id: "med-7", type: "link", title: "UpToDate", desc: "臨床醫學實證資料庫。點擊開啟 UpToDate。", icon: "📚", meta: "醫療", url: "https://www.uptodate.com" },
+    { id: "med-8", type: "emy", title: "EmyWay", desc: "醫師行事曆與相關系統，長庚醫師專用。", icon: "📅", meta: "醫療", baseUrl: "https://emyway.jct.org.tw/calendar/#/fc" },
+    { id: "med-9", type: "link", title: "Delta Health Page", desc: "健康資訊、醫療資源與健康相關工具入口。", url: "DeltaHealth.html", icon: "❤️", meta: "醫療" },
+    { id: "med-10", type: "link", title: "粒粒生技", desc: "粒粒生技官方網站。產品介紹、保健資訊與相關服務入口。", url: "https://sites.google.com/view/vitalgrans/home?authuser=0", icon: "🌾", meta: "醫療" },
+    { id: "med-11", type: "link", title: "Blogger", desc: "吉米醫師 Blogger 文章管理與發布入口。快速查看、編輯與管理部落格文章。", url: "https://www.blogger.com/blog/posts/8498723086197321217", icon: "B", meta: "內容" },
+    { id: "med-12", type: "link", title: "Evernote", desc: "筆記、文件、任務、行事曆與知識管理工具。", url: "https://evernote.com/", icon: "E", meta: "內容" },
+    { id: "med-13", type: "link", title: "Microsoft 365 / Office", desc: "Word、Excel、PowerPoint、Outlook 與 OneDrive。", url: "https://www.office.com/", icon: "▦", meta: "內容" },
+    // -------- 03 寫作 AI --------
+    { id: "write-1", type: "link", title: "寫作 AI 工具專區", desc: "Fomofly、Perplexity、NotebookLM、Gamma、Napkin AI、Claude 與 ElevenLabs 醫學教學、寫作與內容創作 AI 工具整合。", url: "AITopic/WritingAIPorta.html", icon: "✍️", meta: "寫作" },
+    // -------- 04 影音・社群・學習 --------
+    { id: "media-1", type: "link", title: "Facebook", desc: "社群平台。查看貼文、訊息、社團與粉絲專頁。", url: "https://www.facebook.com/", icon: "f", meta: "影音" },
+    { id: "media-2", type: "link", title: "YouTube", desc: "影音學習、醫學教育、演講、新聞與知識分享。", url: "https://www.youtube.com/", icon: "▶", meta: "影音" },
+    { id: "media-3", type: "link", title: "Yahoo! 奇摩", desc: "新聞、氣象、搜尋、生活資訊與綜合入口網站。", url: "https://tw.yahoo.com/", icon: "Y!", meta: "影音" },
+    { id: "media-4", type: "link", title: "Yahoo! 股市", desc: "台股、美股、即時報價、大盤走勢與財經新聞。", url: "https://tw.stock.yahoo.com/", icon: "📈", meta: "影音" },
+    // -------- 05 Portable Browser --------
+    { id: "browser-1", type: "link", title: "Portable Browsers", desc: "Brave、Opera、Firefox、Chrome、Ungoogled Chromium、Waterfox 與 Slimjet 免安裝免設定可攜式瀏覽器下載專區。", url: "BrowserDownload/PortableBrowserDownload.html", icon: "🌐", meta: "瀏覽器" },
+    // -------- 06 WebSpace --------
+    { id: "webspace-1", type: "workspace", title: "WebSpace", desc: "記錄檔案名稱、研究筆記、教學內容、網頁資訊或任何文字資料（雲端 Google Sheet 儲存）。", icon: "📝", meta: "WebSpace" }
+];
+let cards = loadCards();
+function loadCards() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return saved ? JSON.parse(saved) : JSON.parse(JSON.stringify(defaultCards));
+}
+function saveCards() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(cards));
+}
+/* ==========================================================
+   Rendering — branches by card.type but keeps every card
+   inside a single draggable #cardGrid container.
+========================================================== */
+function renderCards() {
+    const grid = document.getElementById("cardGrid");
+    grid.innerHTML = "";
+    cards.forEach((card, index) => {
+        const el = document.createElement("div");
+        el.className = "card" + (card.type === "emy" ? " card-wide" : "") + (card.type === "workspace" ? " card-workspace" : "");
+        el.draggable = true;
+        el.dataset.index = index;
+        if (card.type === "emy") {
+            el.innerHTML = renderEmyCard(card);
+        } else if (card.type === "workspace") {
+            el.innerHTML = renderWorkspaceCard(card);
+        } else {
+            el.innerHTML = renderLinkCard(card);
+        }
+        el.addEventListener("dragstart", handleDragStart);
+        el.addEventListener("dragover", handleDragOver);
+        el.addEventListener("drop", handleDrop);
+        el.addEventListener("dragend", handleDragEnd);
+        grid.appendChild(el);
+    });
+    // Post-render wiring for special card types
+    const wsCard = cards.find(c => c.type === "workspace");
+    if (wsCard) {
+        const searchInput = document.getElementById("wsSearch");
+        if (searchInput) searchInput.addEventListener("input", wsRenderRecords);
+        wsDisplayRecords();
+    }
+}
+function renderLinkCard(card) {
+    return `
+        <div class="card-header">
+            <div class="icon">${card.icon || '🩺'}</div>
+            <div class="card-actions">
+                <button class="action-btn" onclick="editCard('${card.id}')" title="編輯">✏️</button>
+                <button class="action-btn" onclick="deleteCard('${card.id}')" title="刪除">🗑️</button>
+            </div>
+        </div>
+        <h3>${escapeHtml(card.title)}</h3>
+        <p>${escapeHtml(card.desc)}</p>
+        <div class="card-meta">
+            <span class="account-badge">${escapeHtml(card.meta || '醫療')}</span>
+            <a href="${escapeHtml(card.url)}" target="_blank" rel="noopener noreferrer" class="card-link" onclick="event.stopPropagation()">開啟 ↗</a>
+        </div>
+    `;
+}
+function renderEmyCard(card) {
+    return `
+        <div class="card-header">
+            <div class="icon">${card.icon || '📅'}</div>
+            <div class="card-actions">
+                <button class="action-btn" onclick="editCard('${card.id}')" title="編輯">✏️</button>
+                <button class="action-btn" onclick="deleteCard('${card.id}')" title="刪除">🗑️</button>
+            </div>
+        </div>
+        <h3>${escapeHtml(card.title)}</h3>
+        <p>${escapeHtml(card.desc)}</p>
+        <div class="login-info">
+            <a id="emyLogin-${card.id}" href="${escapeHtml(card.baseUrl)}" target="_blank" rel="noopener noreferrer" class="emy-btn">🚀 開啟 EmyWay</a>
+        </div>
+    `;
+}
+function renderWorkspaceCard(card) {
+    return `
+        <div class="card-header">
+            <div class="icon">${card.icon || '📝'}</div>
+            <div class="card-actions">
+                <button class="action-btn" onclick="deleteCard('${card.id}')" title="刪除">🗑️</button>
+            </div>
+        </div>
+        <h3>${escapeHtml(card.title)}</h3>
+        <p class="ws-intro">${escapeHtml(card.desc)}</p>
+        <div class="ws-field">
+            <label for="wsFilename">📁 檔案名稱</label>
+            <input type="text" id="wsFilename" placeholder="例如：Aortic_Dissection_20260829.html">
+        </div>
+        <div class="ws-field">
+            <label for="wsContent">📄 內容</label>
+            <textarea id="wsContent" placeholder="在這裡輸入或貼上內容……"></textarea>
+        </div>
+        <div class="ws-buttons">
+            <button type="button" class="ws-save" onclick="wsSaveRecord()">💾 儲存紀錄</button>
+            <button type="button" class="ws-clear" onclick="wsClearForm()">🧹 清除</button>
+        </div>
+        <div class="ws-field ws-search-row">
+            <label for="wsSearch">🔍 搜尋紀錄</label>
+            <input type="text" id="wsSearch" placeholder="搜尋檔案名稱或內容……">
+        </div>
+        <div id="wsRecords" class="ws-records"></div>
+    `;
+}
+/* ==========================================================
+   Drag & Drop — applies to every card type (link / emy /
+   workspace alike)
+========================================================== */
+let draggedIndex = null;
+function handleDragStart(e) {
+    draggedIndex = +this.dataset.index;
+    this.classList.add("dragging");
+    e.dataTransfer.effectAllowed = "move";
+}
+function handleDragOver(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+}
+function handleDrop(e) {
+    e.preventDefault();
+    const targetIndex = +this.dataset.index;
+    if (draggedIndex === null || draggedIndex === targetIndex) return;
+    const draggedItem = cards.splice(draggedIndex, 1)[0];
+    cards.splice(targetIndex, 0, draggedItem);
+    saveCards();
+    renderCards();
+}
+function handleDragEnd() {
+    this.classList.remove("dragging");
+    draggedIndex = null;
+}
+/* ==========================================================
+   In-place editing — link and emy cards only (no credential
+   fields to edit anymore)
+========================================================== */
+function editCard(id) {
+    const card = cards.find(c => c.id === id);
+    if (!card) return;
+    const newTitle = prompt("修改名稱：", card.title);
+    if (newTitle === null) return;
+    const newDesc = prompt("修改描述：", card.desc);
+    if (newDesc === null) return;
+    card.title = newTitle.trim() || card.title;
+    card.desc = newDesc.trim() || card.desc;
+    if (card.type === "link") {
+        const newUrl = prompt("修改網址 (URL)：", card.url);
+        if (newUrl === null) return;
+        const newMeta = prompt("修改標籤：", card.meta);
+        if (newMeta === null) return;
+        card.url = newUrl.trim() || card.url;
+        card.meta = newMeta.trim() || card.meta;
+    } else if (card.type === "emy") {
+        const newBaseUrl = prompt("修改開啟網址 (URL)：", card.baseUrl);
+        if (newBaseUrl !== null) card.baseUrl = newBaseUrl.trim() || card.baseUrl;
+    }
+    saveCards();
+    renderCards();
+}
+function addNewCard() {
+    const title = prompt("卡片名稱：", "新醫用連結");
+    if (!title) return;
+    const url = prompt("網址 (URL)：", "https://");
+    if (!url) return;
+    const desc = prompt("描述：", "");
+    const meta = prompt("標籤：", "醫療");
+    const newCard = {
+        id: Date.now().toString(),
+        type: "link",
+        title: title.trim(),
+        url: url.trim(),
+        desc: desc ? desc.trim() : "",
+        meta: meta ? meta.trim() : "醫療",
+        icon: "💊"
+    };
+    cards.unshift(newCard);
+    saveCards();
+    renderCards();
+}
+function deleteCard(id) {
+    if (!confirm("確定要刪除這張卡片嗎？")) return;
+    cards = cards.filter(c => c.id !== id);
+    saveCards();
+    renderCards();
+}
+function resetDefaultCards() {
+    if (confirm("恢復預設我的醫院醫用卡片嗎？")) {
+        cards = JSON.parse(JSON.stringify(defaultCards));
+        saveCards();
+        renderCards();
+    }
+}
+function filterCards() {
+    const query = document.getElementById("search").value.toLowerCase();
+    document.querySelectorAll("#cardGrid > .card").forEach(el => {
+        const text = el.innerText.toLowerCase();
+        el.style.display = text.includes(query) ? "flex" : "none";
+    });
+}
+function escapeHtml(str) {
+    return String(str || '').replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+/* ==========================================================
+   WebSpace — Google Sheet (Apps Script Web App) 雲端紀錄
+========================================================== */
+let wsRecordsCache = [];
+let wsLoading = false;
+async function wsFetchRecords() {
+    const res = await fetch(WS_API_URL + "?action=list");
+    const data = await res.json();
+    if (!data.success) throw new Error(data.error || "讀取失敗");
+    return data.records;
+}
+async function wsPostAdd(filename, content) {
+    const res = await fetch(WS_API_URL, {
+        method: "POST",
+        body: JSON.stringify({ action: "add", filename, content })
+    });
+    const data = await res.json();
+    if (!data.success) throw new Error(data.error || "新增失敗");
+    return data.record;
+}
+async function wsPostDelete(id) {
+    const res = await fetch(WS_API_URL, {
+        method: "POST",
+        body: JSON.stringify({ action: "delete", id })
+    });
+    const data = await res.json();
+    if (!data.success) throw new Error(data.error || "刪除失敗");
+}
+async function wsSaveRecord() {
+    const filenameEl = document.getElementById("wsFilename");
+    const contentEl = document.getElementById("wsContent");
+    if (!filenameEl || !contentEl) return;
+    const filename = filenameEl.value.trim();
+    const content = contentEl.value.trim();
+    if (!filename) { alert("請輸入檔案名稱！"); return; }
+    if (!content) { alert("請輸入內容！"); return; }
+    const btn = document.querySelector(".ws-save");
+    const originalText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = "💾 儲存中…";
+    try {
+        await wsPostAdd(filename, content);
+        wsClearForm();
+        await wsDisplayRecords();
+    } catch (err) {
+        alert("⚠️ 儲存失敗：" + err.message);
+    } finally {
+        btn.disabled = false;
+        btn.textContent = originalText;
+    }
+}
+function wsClearForm() {
+    const filenameEl = document.getElementById("wsFilename");
+    const contentEl = document.getElementById("wsContent");
+    if (filenameEl) filenameEl.value = "";
+    if (contentEl) contentEl.value = "";
+}
+async function wsDeleteRecord(id) {
+    if (!confirm("確定要刪除這筆紀錄嗎？")) return;
+    try {
+        await wsPostDelete(id);
+        await wsDisplayRecords();
+    } catch (err) {
+        alert("⚠️ 刪除失敗：" + err.message);
+    }
+}
+function wsEscapeHTML(text) {
+    const div = document.createElement("div");
+    div.textContent = text;
+    return div.innerHTML;
+}
+async function wsDisplayRecords() {
+    const container = document.getElementById("wsRecords");
+    if (!container) return;
+    if (wsLoading) return;
+    wsLoading = true;
+    container.innerHTML = '<div class="ws-empty">⏳ 讀取中…</div>';
+    try {
+        wsRecordsCache = await wsFetchRecords();
+    } catch (err) {
+        container.innerHTML = '<div class="ws-empty">⚠️ 無法連線至 Google Sheet：' + wsEscapeHTML(err.message) + '</div>';
+        wsLoading = false;
+        return;
+    }
+    wsLoading = false;
+    wsRenderRecords();
+}
+function wsRenderRecords() {
+    const container = document.getElementById("wsRecords");
+    const searchEl = document.getElementById("wsSearch");
+    if (!container || !searchEl) return;
+    const search = searchEl.value.trim().toLowerCase();
+    const filtered = wsRecordsCache.filter(r =>
+        r.filename.toLowerCase().includes(search) ||
+        r.content.toLowerCase().includes(search)
+    );
+    if (filtered.length === 0) {
+        container.innerHTML = '<div class="ws-empty">📭 目前沒有紀錄</div>';
+        return;
+    }
+    container.innerHTML = filtered.map(r => `
+        <div class="ws-record">
+            <div class="ws-record-header">
+                <div>
+                    <div class="ws-filename">📁 ${wsEscapeHTML(r.filename)}</div>
+                    <div class="ws-date">${wsEscapeHTML(r.date)}</div>
+                </div>
+                <button type="button" class="ws-delete" onclick="wsDeleteRecord('${r.id}')">🗑 刪除</button>
+            </div>
+            <div class="ws-record-content">${wsEscapeHTML(r.content)}</div>
+        </div>
+    `).join("");
+}
+// Initial Render
+renderCards();
+</script>
+</body>
+</html>
