@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portable Browser 下載專區 - 吉米醫師</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+    color: #172033;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 45%, #e0f2fe 100%);
+}
+header {
+    padding: 42px 20px 30px;
+    text-align: center;
+}
+.logo {
+    width: 82px;
+    height: 82px;
+    margin: auto;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #111827, #2563eb);
+    color: white;
+    font-size: 38px;
+    font-weight: 800;
+    box-shadow: 0 15px 35px rgba(37,99,235,.25);
+}
+h1 {
+    margin: 18px 0 8px;
+    font-size: 32px;
+    letter-spacing: -0.8px;
+}
+.subtitle {
+    max-width: 820px;
+    margin: 0 auto;
+    color: #64748b;
+    font-size: 15px;
+    line-height: 1.8;
+}
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 15px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(37,99,235,.3);
+    transition: background .18s ease;
+}
+.back-btn:hover {
+    background: #1d4ed8;
+}
+.search-area {
+    max-width: 720px;
+    margin: 25px auto 0;
+    padding: 0 20px;
+}
+.search-box {
+    width: 100%;
+    padding: 17px 22px;
+    border: 1px solid #dbe3ef;
+    border-radius: 18px;
+    outline: none;
+    background: rgba(255,255,255,.92);
+    font-size: 16px;
+    box-shadow: 0 10px 30px rgba(15,23,42,.08);
+}
+.search-box:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59,130,246,.12);
+}
+main {
+    width: min(1200px,94%);
+    margin: 0 auto 50px;
+}
+.section {
+    margin-top: 30px;
+}
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 15px;
+    font-size: 20px;
+    font-weight: 750;
+}
+.section-title span {
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 500;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 16px;
+}
+.card {
+    position: relative;
+    display: block;
+    padding: 22px;
+    min-height: 175px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: inherit;
+    background: rgba(255,255,255,.91);
+    border: 1px solid rgba(255,255,255,.8);
+    box-shadow: 0 10px 30px rgba(15,23,42,.07);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #93c5fd;
+    box-shadow: 0 18px 40px rgba(15,23,42,.14);
+}
+.icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    background: #eff6ff;
+    font-size: 22px;
+    font-weight: 800;
+}
+.card h3 {
+    margin: 0 0 7px;
+    padding-right: 25px;
+    font-size: 18px;
+}
+.card p {
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.65;
+}
+.arrow {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    color: #94a3b8;
+    font-size: 18px;
+}
+footer {
+    text-align: center;
+    padding: 28px;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.8;
+}
+@media(max-width:600px) {
+    header { padding-top: 28px; }
+    h1 { font-size: 26px; }
+    .grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">🌐</div>
+    <h1>Portable Browsers</h1>
+    <p class="subtitle">Windows 可攜式瀏覽器免安裝下載專區</p>
+    <a href="index.html" class="back-btn">← 返回主入口</a>
+
+    <div class="search-area">
+        <input id="search" class="search-box" type="search" placeholder="🔍 搜尋瀏覽器..." autocomplete="off" onkeyup="filterCards()">
+    </div>
+</header>
+
+<main>
+<section class="section">
+    <h2 class="section-title">🌐 Windows Portable Browsers <span>免安裝・隨插即用</span></h2>
+    <div class="grid">
+        <!-- Brave Portable -->
+        <a class="card" href="https://portapps.io/app/brave-portable/#download" target="_blank" rel="noopener noreferrer">
+            <div class="icon">🦁</div>
+            <h3>Brave Portable</h3>
+            <p>Brave Windows 可攜式版本下載頁面。</p>
+            <div class="arrow">↗</div>
+        </a>
+
+        <!-- Opera Portable -->
+        <a class="card" href="https://portableapps.com/downloading/?a=OperaPortable&s=s&p=&d=pa&n=Opera%20Portable,%20Portable%20Edition&f=OperaPortable_134.0.5954.46.paf.exe" target="_blank" rel="noopener noreferrer">
+            <div class="icon">⭕</div>
+            <h3>Opera Portable</h3>
+            <p>Opera Windows 可攜式版本直接下載。</p>
+            <div class="arrow">↗</div>
+        </a>
+
+        <!-- Firefox Portable -->
+        <a class="card" href="https://portableapps.com/apps/internet/firefox_portable" target="_blank" rel="noopener noreferrer">
+            <div class="icon">🦊</div>
+            <h3>Firefox Portable</h3>
+            <p>Firefox Windows 可攜式版本。</p>
+            <div class="arrow">↗</div>
+        </a>
+
+        <!-- Chrome Portable -->
+        <a class="card" href="https://portableapps.com/apps/internet/google_chrome_portable/" target="_blank" rel="noopener noreferrer">
+            <div class="icon">🌐</div>
+            <h3>Chrome Portable</h3>
+            <p>Google Chrome Windows 可攜式版本。</p>
+            <div class="arrow">↗</div>
+        </a>
+
+        <!-- Ungoogled Chromium Portable -->
+        <a class="card" href="https://www.slimjet.com/en/dlpage.php" target="_blank" rel="noopener noreferrer">
+            <div class="icon">UC</div>
+            <h3>Ungoogled Chromium</h3>
+            <p>去除 Google 服務整合的 Chromium 可攜式版本。</p>
+            <div class="arrow">↗</div>
+        </a>
+
+        <!-- Waterfox Portable -->
+        <a class="card" href="https://portapps.io/app/waterfox-portable/#download" target="_blank" rel="noopener noreferrer">
+            <div class="icon">W</div>
+            <h3>Waterfox Portable</h3>
+            <p>Waterfox Windows 可攜式版本。</p>
+            <div class="arrow">↗</div>
+        </a>
+
+        <!-- Slimjet Portable -->
+        <a class="card" href="https://www.slimjet.com/en/dlpage.php" target="_blank" rel="noopener noreferrer">
+            <div class="icon">S</div>
+            <h3>Slimjet Portable</h3>
+            <p>Slimjet Windows 可攜式版本下載頁面。</p>
+            <div class="arrow">↗</div>
+        </a>
+    </div>
+</section>
+</main>
+
+<footer>
+    <strong>吉米醫師－台達電駐診常用網站</strong><br>
+    © 2026 Jimmy Doctor
+</footer>
+
+<script>
+function filterCards() {
+    const input = document.getElementById("search").value.trim().toLowerCase();
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? "block" : "none";
+    });
+}
+</script>
+</body>
+</html>
