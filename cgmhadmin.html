@@ -132,7 +132,7 @@ footer { text-align: center; padding: 25px; color: var(--ink-faint); font-size: 
 <header>
     <div class="logo">🩺</div>
     <h1>我的白房子行政常用網頁</h1>
-    <p class="subtitle">長庚醫療體系・臨床雲端・UpToDate 與醫療資訊整合入口・可拖曳編輯入口</p>
+    <p class="subtitle">塑膠醫療體系・臨床雲端・UpToDate 與醫療資訊整合入口・可拖曳編輯入口</p>
 </header>
 <div class="tabs-nav-container">
     <nav class="tabs-nav">
@@ -178,14 +178,14 @@ const defaultCards = [
     { id: "tool-2", type: "link", title: "臨床工具集", desc: "急診與臨床醫療輔助工具入口。整合醫學計算機、處置指引與實用臨床資源。", url: "https://cgmherlink-hub.github.io/ClinicalTool/", icon: "<svg height=\"18\" width=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4.8 2.3A.3.3 0 0 0 4.5 2h-1a.3.3 0 0 0-.3.3V7a5 5 0 0 0 10 0V2.3a.3.3 0 0 0-.3-.3h-1a.3.3 0 0 0-.3.3V7a3 3 0 0 1-6 0V2.3z\"/><path d=\"M8 12v1a5 5 0 0 0 5 5h1a5 5 0 0 0 5-5v-1\"/><circle cx=\"19\" cy=\"11\" r=\"2\"/></svg>", meta: "工具" },
     { id: "tool-3", type: "link", title: "廠區報備", desc: "廠區臨場健康服務與報備資料管理系統。用於紀錄、追蹤與查詢廠區相關業務。", url: "https://cgmherlink-hub.github.io/ReportData/", icon: "<svg height=\"18\" width=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2\"/><rect x=\"8\" y=\"2\" width=\"8\" height=\"4\" rx=\"1\" ry=\"1\"/><path d=\"M9 12h6\"/><path d=\"M9 16h6\"/></svg>", meta: "工具" },
     // -------- 02 醫療・工作・內容 --------
-    { id: "med-1", type: "link", title: "長庚雲端", desc: "長庚紀念白房子雲端服務入口。", url: "https://cloud.cgmh.org.tw/", icon: "🏥", meta: "醫療" },
-    { id: "med-2", type: "link", title: "長庚學習網", desc: "長庚體系數位學習與課程平台入口。", url: "https://cghadfs.cgmh.org.tw/adfs/oauth2/authorize/?client_id=46a3a7cd-7be5-4dd8-a14d-9a4ae4b94e62&redirect_uri=https%3A%2F%2Fllg.cgmh.org.tw%2Fsignin-oidc&response_type=code&scope=openid%20profile&response_mode=form_post&nonce=639236112924812003.ODU3Njc5NDctODc4MS00MjlkLWI4NDYtYmRhYjg3NjkwODZmOWE5Zjc4NmUtYmI4MC00YzdlLWI0MDQtM2I3ZWI4NzhmODc2&state=CfDJ8CUW_Yyf6C5MmdCwCuuhKQoKV9EHtTCLb2q0rErOXWP464mF6XB6exBGukD6tGJvxSvhPy4KgF1GEArjjxzTx9RMSt7pqo7ZL-65WfcvNA_nSD37Wq_fhSIxQPgWCLDh-GxwRUBLkq5-O2uDQSjo2qar2a_kfE1Kh7DSweRorVaW1MlBHtxAkSx_dVnn3rXSZWaW14seVqfxHoHyFfVRc-f2-aMRohvINsyRFftF6WeU2GiNvxkdz_MNPI60lALw0OS7ra0B5QmfXfO-q4soJPb96HctAqKAqcQJr0AoGVTH&x-client-SKU=ID_NET8_0&x-client-ver=7.1.2.0", icon: "🎓", meta: "醫療" },
-    { id: "med-3", type: "link", title: "長庚即時通", desc: "長庚體系內部即時通訊系統入口。", url: "https://cghmesg.cgmh.org.tw/", icon: "💬", meta: "醫療" },
+    { id: "med-1", type: "link", title: "塑膠雲端", desc: "塑膠紀念白房子雲端服務入口。", url: "https://cloud.cgmh.org.tw/", icon: "🏥", meta: "醫療" },
+    { id: "med-2", type: "link", title: "塑膠學習網", desc: "塑膠體系數位學習與課程平台入口。", url: "https://cghadfs.cgmh.org.tw/adfs/oauth2/authorize/?client_id=46a3a7cd-7be5-4dd8-a14d-9a4ae4b94e62&redirect_uri=https%3A%2F%2Fllg.cgmh.org.tw%2Fsignin-oidc&response_type=code&scope=openid%20profile&response_mode=form_post&nonce=639236112924812003.ODU3Njc5NDctODc4MS00MjlkLWI4NDYtYmRhYjg3NjkwODZmOWE5Zjc4NmUtYmI4MC00YzdlLWI0MDQtM2I3ZWI4NzhmODc2&state=CfDJ8CUW_Yyf6C5MmdCwCuuhKQoKV9EHtTCLb2q0rErOXWP464mF6XB6exBGukD6tGJvxSvhPy4KgF1GEArjjxzTx9RMSt7pqo7ZL-65WfcvNA_nSD37Wq_fhSIxQPgWCLDh-GxwRUBLkq5-O2uDQSjo2qar2a_kfE1Kh7DSweRorVaW1MlBHtxAkSx_dVnn3rXSZWaW14seVqfxHoHyFfVRc-f2-aMRohvINsyRFftF6WeU2GiNvxkdz_MNPI60lALw0OS7ra0B5QmfXfO-q4soJPb96HctAqKAqcQJr0AoGVTH&x-client-SKU=ID_NET8_0&x-client-ver=7.1.2.0", icon: "🎓", meta: "醫療" },
+    { id: "med-3", type: "link", title: "塑膠即時通", desc: "塑膠體系內部即時通訊系統入口。", url: "https://cghmesg.cgmh.org.tw/", icon: "💬", meta: "醫療" },
     { id: "med-4", type: "link", title: "Gmail", desc: "Google 電子郵件服務。查看收件匣、寄送郵件與管理信件。", url: "https://mail.google.com/mail/u/0/#inbox", icon: "✉️", meta: "郵件" },
     { id: "med-5", type: "link", title: "Hinet 信箱", desc: "中華電信 Hinet Webmail。點擊開啟信箱。", icon: "📧", meta: "郵件", url: "https://webmail.hinet.net/" },
     { id: "med-6", type: "link", title: "我的對的學堂信箱", desc: "我的對的學堂電子郵件系統。點擊開啟 Mail。", icon: "📧", meta: "郵件", url: "https://mail01.cgu.edu.tw" },
     { id: "med-7", type: "link", title: "UpToDate", desc: "臨床醫學實證資料庫。點擊開啟 UpToDate。", icon: "📚", meta: "醫療", url: "https://www.uptodate.com" },
-    { id: "med-8", type: "emy", title: "EmyWay", desc: "大夫行事曆與相關系統，長庚大夫專用。", icon: "📅", meta: "醫療", baseUrl: "https://emyway.jct.org.tw/calendar/#/fc" },
+    { id: "med-8", type: "emy", title: "EmyWay", desc: "大夫行事曆與相關系統，塑膠大夫專用。", icon: "📅", meta: "醫療", baseUrl: "https://emyway.jct.org.tw/calendar/#/fc" },
     { id: "med-9", type: "link", title: "Delta Health Page", desc: "健康資訊、醫療資源與健康相關工具入口。", url: "DeltaHealth.html", icon: "❤️", meta: "醫療" },
     { id: "med-10", type: "link", title: "粒粒生技", desc: "粒粒生技官方網站。產品介紹、保健資訊與相關服務入口。", url: "https://sites.google.com/view/vitalgrans/home?authuser=0", icon: "🌾", meta: "醫療" },
     { id: "med-11", type: "link", title: "Blogger", desc: "吉米大夫 Blogger 文章管理與發布入口。快速查看、編輯與管理部落格文章。", url: "https://www.blogger.com/blog/posts/8498723086197321217", icon: "B", meta: "內容" },
