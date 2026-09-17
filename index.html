@@ -9,30 +9,28 @@
    Design Tokens
 ========================================================= */
 :root {
-    --bg-1: #eef2ff;
-    --bg-2: #f7f9fc;
-    --bg-3: #e0f2fe;
-    --ink: #172033;
-    --ink-soft: #5b6472;
-    --ink-faint: #8b93a1;
-    --surface: rgba(255,255,255,0.94);
-    --surface-border: rgba(226,232,240,0.9);
-    --line: #e6eaf1;
-    --brand: #2563eb;
-    --brand-dark: #111827;
-    --shadow-sm:
-        0 6px 18px rgba(15,23,42,0.06);
-    --shadow-md:
-        0 14px 34px rgba(15,23,42,0.10);
-    --radius-lg: 20px;
-    --radius-md: 16px;
-    --accent-ai: #2563eb;
-    --accent-tools: #7c3aed;
-    --accent-med: #0d9488;
-    --accent-write: #ea580c;
-    --accent-media: #db2777;
-    --accent-browser: #0891b2;
-    --accent-webspace: #d97706;
+    --bg-1: #f2f2f2;
+    --bg-2: #f2f2f2;
+    --bg-3: #f2f2f2;
+    --ink: #1a1a1a;
+    --ink-soft: #605e5c;
+    --ink-faint: #8a8886;
+    --surface: #ffffff;
+    --surface-border: #e1dfdd;
+    --line: #e1dfdd;
+    --brand: #0067b8;
+    --brand-dark: #001b3d;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-md: 0 6px 20px rgba(0,0,0,0.14);
+    --radius-lg: 12px;
+    --radius-md: 8px;
+    --accent-ai: #0067b8;
+    --accent-tools: #0067b8;
+    --accent-med: #0067b8;
+    --accent-write: #0067b8;
+    --accent-media: #0067b8;
+    --accent-browser: #0067b8;
+    --accent-webspace: #0067b8;
 }
 /* =========================================================
    Global
@@ -82,6 +80,8 @@ textarea:focus-visible {
 header {
     padding: 50px 20px 28px;
     text-align: center;
+    background: var(--brand-dark);
+    color: #fff;
 }
 .logo {
     width: 76px;
@@ -113,7 +113,7 @@ h1 {
 .subtitle {
     max-width: 760px;
     margin: 0 auto;
-    color: var(--ink-soft);
+    color: rgba(255,255,255,0.72);
     font-size: 14.5px;
     line-height: 1.85;
 }
@@ -124,9 +124,9 @@ h1 {
     margin-top: 16px;
     padding: 7px 16px;
     border-radius: 999px;
-    background: var(--surface);
-    border: 1px solid var(--surface-border);
-    color: var(--ink-soft);
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
     font-size: 12px;
     box-shadow: var(--shadow-sm);
 }
@@ -151,13 +151,11 @@ h1 {
     display: flex;
     gap: 8px;
     padding: 8px;
-    background:
-        rgba(255,255,255,0.78);
+    background: #fff;
     border:
         1px solid var(--surface-border);
     border-radius: 16px;
     box-shadow: var(--shadow-sm);
-    backdrop-filter: blur(12px);
 }
 .tab-btn {
     flex: 0 0 auto;
@@ -184,15 +182,10 @@ h1 {
         translateY(-1px);
 }
 .tab-btn.active {
-    background:
-        linear-gradient(
-            135deg,
-            var(--brand-dark),
-            var(--brand)
-        );
-    color: white;
-    box-shadow:
-        0 6px 14px rgba(37,99,235,0.22);
+    background: transparent;
+    color: var(--brand);
+    border-bottom: 3px solid var(--brand);
+    box-shadow: none;
 }
 /* =========================================================
    Search
@@ -264,8 +257,8 @@ h1 {
     background:
         linear-gradient(
             135deg,
-            #0d9488,
-            #059669
+            var(--brand-dark),
+            var(--brand)
         );
     color: white;
 }
@@ -372,8 +365,8 @@ main {
     align-items: center;
     justify-content: center;
     margin-bottom: 11px;
-    background: rgba(37,99,235,0.10);
-    color: var(--section-accent, var(--brand));
+    background: var(--brand);
+    color: #fff;
     font-size: 16px;
     font-weight: 800;
     flex-shrink: 0;
